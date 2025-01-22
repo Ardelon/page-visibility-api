@@ -1,9 +1,11 @@
 "use client";
 
 import usePageVisibility from "@/hooks/pageVisibilityHook";
+import { useMounted } from "@/hooks/useMounted";
 import { useEffect, useRef, useState } from "react";
 
-export default function Timer() {
+function Timer() {
+  const mounted = useMounted();
   const [counter, setCounter] = useState(0);
   const [timer, setTimer] = useState(0);
   const isDocumentVisible = usePageVisibility();
@@ -24,6 +26,8 @@ export default function Timer() {
     }
   }, [isDocumentVisible]);
 
+  if (!mounted) return null;
+
   return (
     <div className="video">
       <div className="music-div">
@@ -37,3 +41,5 @@ export default function Timer() {
     </div>
   );
 }
+
+export default Timer;

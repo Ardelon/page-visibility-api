@@ -1,7 +1,10 @@
 "use client";
-import { use, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import usePageVisibility from "../../hooks/pageVisibilityHook.js";
-export default function Music() {
+import { useMounted } from "@/hooks/useMounted.js";
+function Music() {
+  const mounted = useMounted();
+
   const audioRef = useRef();
 
   const [playOnHide, setPlayOnHide] = useState(false);
@@ -19,7 +22,7 @@ export default function Music() {
       }
     }
   }, [isDocumentVisible, playOnHide]);
-
+  if (!mounted) return null;
   return (
     <div className="video">
       <audio
@@ -39,3 +42,5 @@ export default function Music() {
     </div>
   );
 }
+
+export default Music;

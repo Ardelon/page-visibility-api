@@ -1,9 +1,12 @@
 "use client";
 
 import usePageVisibility from "@/hooks/pageVisibilityHook";
+import { useMounted } from "@/hooks/useMounted";
 import { useEffect, useRef } from "react";
 
-export default function Video() {
+function Video() {
+  const mounted = useMounted();
+
   const videoRef = useRef(null);
   const isDocumentVisible = usePageVisibility();
 
@@ -14,7 +17,7 @@ export default function Video() {
       videoRef.current.pause();
     }
   }, [isDocumentVisible]);
-
+  if (!mounted) return null;
   return (
     <div className="video">
       <video
@@ -27,3 +30,5 @@ export default function Video() {
     </div>
   );
 }
+
+export default Video;

@@ -3,7 +3,7 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: yellow) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
@@ -35,7 +35,7 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: yellow) {
   html {
     color-scheme: dark;
   }
@@ -46,6 +46,14 @@ a {
   display: flex;
   gap: 20px;
   font-size: 1.5em;
+}
+
+.battery {
+  transform: translate(0px, 300px);
+  display: flex;
+  gap: 20px;
+  font-size: 1.5em;
+  flex-direction: column;
 }
 
 .input {
