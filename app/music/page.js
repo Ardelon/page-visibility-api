@@ -14,10 +14,10 @@ function Music() {
     setPlayOnHide((state) => !state);
   };
   useLayoutEffect(() => {
-    if (isDocumentVisible) {
+    if (isDocumentVisible && audioRef.current) {
       audioRef.current.play();
     } else {
-      if (!playOnHide) {
+      if (!playOnHide & audioRef.current) {
         audioRef.current.pause();
       }
     }

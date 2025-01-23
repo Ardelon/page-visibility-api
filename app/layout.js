@@ -65,6 +65,16 @@ export default function RootLayout({ children }) {
               />
               Battery
             </a>
+            <a href="device" rel="noopener noreferrer">
+              <Image
+                aria-hidden
+                src="/window.svg"
+                alt="Window icon"
+                width={16}
+                height={16}
+              />
+              Device
+            </a>
           </footer>
         </div>
       </body>
