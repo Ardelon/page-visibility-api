@@ -67,3 +67,27 @@ a {
   justify-content: center;
   gap: 6px;
 }
+
+.color-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.color-div {
+  width: 200px;
+  height: 30px;
+}
+
+.button {
+  /* border: none; */
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 1px solid black;
+}

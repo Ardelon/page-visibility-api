@@ -75,6 +75,16 @@ export default function RootLayout({ children }) {
               />
               Device
             </a>
+            <a href="color-generator" rel="noopener noreferrer">
+              <Image
+                aria-hidden
+                src="/window.svg"
+                alt="Window icon"
+                width={16}
+                height={16}
+              />
+              Color Generator
+            </a>
           </footer>
         </div>
       </body>
