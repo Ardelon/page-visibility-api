@@ -112,6 +112,16 @@ export default function RootLayout({ children }) {
               />
               Color Generator
             </a>
+            <a href="eye-dropper" rel="noopener noreferrer">
+              <Image
+                aria-hidden
+                src="/window.svg"
+                alt="Window icon"
+                width={16}
+                height={16}
+              />
+              Eye Dropper API
+            </a>
           </footer>
         </div>
       </body>

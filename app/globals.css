@@ -91,3 +91,9 @@ a {
   border-radius: 6px;
   border: 1px solid black;
 }
+
+.picked-color-container {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
