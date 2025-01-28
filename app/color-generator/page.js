@@ -5,12 +5,7 @@ import { useEffect, useState } from "react";
 
 function ColorGenerator() {
   const [colorList, setColorList] = useState([]);
-  useEffect(() => {
-    Notification.requestPermission().then((result) => {
-      console.log(result);
-      navigator.setAppBadge(12);
-    });
-  }, []);
+
   const generateNewColors = () => {
     setColorList(Array.apply(null, Array(9)).map(() => getNewColor()));
   };

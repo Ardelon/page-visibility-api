@@ -1,20 +1,20 @@
 "use client";
 
 import usePageVisibility from "@/hooks/pageVisibilityHook";
-import { useMounted } from "@/hooks/useMounted";
+import { isClient } from "@/utility/rendering";
 import { useEffect, useRef } from "react";
 
 function Video() {
-  const mounted = useMounted();
+  const mounted = isClient();
 
   const videoRef = useRef(null);
   const isDocumentVisible = usePageVisibility();
 
   useEffect(() => {
     if (isDocumentVisible) {
-      videoRef.current.play();
+      videoRef.current && videoRef.current.play();
     } else {
-      videoRef.current.pause();
+      videoRef.current && videoRef.current.pause();
     }
   }, [isDocumentVisible]);
   if (!mounted) return null;

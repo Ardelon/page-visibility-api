@@ -1,7 +1,10 @@
 "use client";
+import { isClient } from "@/utility/rendering";
 import { useState, useEffect } from "react";
 
 function usePageVisibility() {
+  const mounted = isClient();
+  if (!mounted) return "non-visible";
   const [isVisible, setIsVisible] = useState(!document.hidden);
 
   useEffect(() => {
