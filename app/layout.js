@@ -45,8 +45,9 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <GoogleTagManager gtmId="GTM-N58DZ4KH" />
-      <GoogleAnalytics gaId="G-ZB551XM599" />
+      <GoogleTagManager gtmId={process.env.GOOGLE_TAG_MANAGER} />
+      <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS} />
+      <Script async crossOrigin="anonymous" src={process.env.GOOGLE_AD_SENSE} />
 
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <div className={styles.page}>
