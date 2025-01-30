@@ -3,6 +3,7 @@ import "./globals.css";
 import Image from "next/image";
 import styles from "./page.module.css";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import Script from "next/script";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
