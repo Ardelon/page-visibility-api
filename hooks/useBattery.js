@@ -14,14 +14,16 @@ function useBattery() {
   useEffect(() => {
     (async () => {
       const battery = await navigator.getBattery();
-      setBatteryStatus((state) => ({
-        ...state,
-        isCharging: battery.charging,
-        level: battery.level,
-        chargingTime: battery.chargingTime,
-        dischargingTime: battery.dischargingTime,
-      }));
-      setBatteryRef(battery);
+      if (battery) {
+        setBatteryStatus((state) => ({
+          ...state,
+          isCharging: battery.charging,
+          level: battery.level,
+          chargingTime: battery.chargingTime,
+          dischargingTime: battery.dischargingTime,
+        }));
+        setBatteryRef(battery);
+      }
     })();
   }, []);
 
@@ -75,7 +77,7 @@ function useBattery() {
       applyEventListeners(batteryRef);
     }
     return () => {
-      if (batteryRef) {
+      if (batteryRef && batteryRef.removeEventListener) {
         removeEventListeners(batteryRef);
       }
     };

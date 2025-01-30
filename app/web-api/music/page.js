@@ -1,6 +1,6 @@
 "use client";
 import { useLayoutEffect, useRef, useState } from "react";
-import usePageVisibility from "../../hooks/pageVisibilityHook.js";
+import usePageVisibility from "../../../hooks/pageVisibilityHook.js";
 import { isClient } from "@/utility/rendering.js";
 function Music() {
   const mounted = isClient();

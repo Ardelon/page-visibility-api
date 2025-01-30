@@ -4,6 +4,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import Script from "next/script";
+import Link from "next/link";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -54,7 +55,7 @@ export default function RootLayout({ children }) {
         <div className={styles.page}>
           {children}
           <footer className={styles.footer}>
-            <a href="music" rel="noopener noreferrer">
+            <Link href="/web-api/music" rel="noopener noreferrer">
               <Image
                 aria-hidden
                 src="/file.svg"
@@ -63,8 +64,8 @@ export default function RootLayout({ children }) {
                 height={16}
               />
               Music
-            </a>
-            <a href="video" rel="noopener noreferrer">
+            </Link>
+            <Link href="/web-api/video" rel="noopener noreferrer">
               <Image
                 aria-hidden
                 src="/window.svg"
@@ -73,8 +74,8 @@ export default function RootLayout({ children }) {
                 height={16}
               />
               Video
-            </a>
-            <a href="timer" rel="noopener noreferrer">
+            </Link>
+            <Link href="/web-api/timer" rel="noopener noreferrer">
               <Image
                 aria-hidden
                 src="/globe.svg"
@@ -83,8 +84,8 @@ export default function RootLayout({ children }) {
                 height={16}
               />
               Timer
-            </a>
-            <a href="battery" rel="noopener noreferrer">
+            </Link>
+            <Link href="/web-api/battery" rel="noopener noreferrer">
               <Image
                 aria-hidden
                 src="/file.svg"
@@ -93,8 +94,8 @@ export default function RootLayout({ children }) {
                 height={16}
               />
               Battery
-            </a>
-            <a href="device" rel="noopener noreferrer">
+            </Link>
+            <Link href="/web-api/device" rel="noopener noreferrer">
               <Image
                 aria-hidden
                 src="/window.svg"
@@ -103,8 +104,8 @@ export default function RootLayout({ children }) {
                 height={16}
               />
               Device
-            </a>
-            <a href="color-generator" rel="noopener noreferrer">
+            </Link>
+            <Link href="/color-generator" rel="noopener noreferrer">
               <Image
                 aria-hidden
                 src="/window.svg"
@@ -113,8 +114,8 @@ export default function RootLayout({ children }) {
                 height={16}
               />
               Color Generator
-            </a>
-            <a href="eye-dropper" rel="noopener noreferrer">
+            </Link>
+            <Link href="/web-api/eye-dropper" rel="noopener noreferrer">
               <Image
                 aria-hidden
                 src="/window.svg"
@@ -123,7 +124,7 @@ export default function RootLayout({ children }) {
                 height={16}
               />
               Eye Dropper API
-            </a>
+            </Link>
           </footer>
         </div>
       </body>
