@@ -4,16 +4,11 @@ import { isClient } from "@/utility/rendering";
 function Device() {
   const isBrowser = isClient();
 
+  if (!isBrowser) return null;
   return (
     <div className="battery">
       <h2>Device Page</h2>
-      {isBrowser ? (
-        <>
-          <p>{`Your device has approximately ${navigator.deviceMemory} GB of RAM `}</p>
-        </>
-      ) : (
-        <></>
-      )}
+      <p>{`Your device has approximately ${navigator.deviceMemory} GB of RAM `}</p>
     </div>
   );
 }

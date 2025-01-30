@@ -76,11 +76,11 @@ function useBattery() {
     if (batteryRef) {
       applyEventListeners(batteryRef);
     }
-    return () => {
-      if (batteryRef && batteryRef.removeEventListener) {
-        removeEventListeners(batteryRef);
-      }
-    };
+    // return () => {
+    //   if (batteryRef && batteryRef.removeEventListener) {
+    //     removeEventListeners(batteryRef);
+    //   }
+    // };
   }, [batteryRef]);
 
   return batteryStatus;
