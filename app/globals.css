@@ -97,3 +97,51 @@ a {
   flex-direction: row;
   gap: 5px;
 }
+
+.step-counter {
+  display: flex;
+  height: 30px;
+  width: 100px;
+}
+
+.step-counter-button {
+  min-width: 30px;
+}
+
+.step-counter-display {
+  flex-grow: 1;
+  text-align: center;
+  line-height: 30px;
+  font-size: 18px;
+}
+
+.palette-container {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.palette-div {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.tint-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background-color: rgba(25, 25, 25, 0.9);
+  font-size: 18px;
+  color: whitesmoke;
+  line-height: 32px;
+}
+
+.control-panel {
+  display: flex;
+  gap: 20px;
+}

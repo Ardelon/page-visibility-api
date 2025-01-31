@@ -125,6 +125,16 @@ export default function RootLayout({ children }) {
               />
               Eye Dropper API
             </Link>
+            {/* <Link href="/color-palette-builder" rel="noopener noreferrer">
+              <Image
+                aria-hidden
+                src="/window.svg"
+                alt="Window icon"
+                width={16}
+                height={16}
+              />
+              Color Palette Builder
+            </Link> */}
           </footer>
         </div>
       </body>
