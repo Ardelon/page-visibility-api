@@ -19,7 +19,8 @@ function Video() {
   }, [isDocumentVisible]);
   if (!mounted) return null;
   return (
-    <div className="video">
+    <div className="page-position">
+      <h2>Video Page</h2>
       <video
         controls
         loop

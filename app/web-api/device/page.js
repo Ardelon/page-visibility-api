@@ -6,7 +6,7 @@ function Device() {
 
   if (!isBrowser) return null;
   return (
-    <div className="battery">
+    <div className="page-position">
       <h2>Device Page</h2>
       <p>{`Your device has approximately ${navigator.deviceMemory} GB of RAM `}</p>
     </div>

@@ -25,7 +25,8 @@ function Music() {
   }, [isDocumentVisible, playOnHide]);
   if (!mounted) return null;
   return (
-    <div className="video">
+    <div className="page-position">
+      <h2>Music Page</h2>
       <audio
         ref={audioRef}
         controls

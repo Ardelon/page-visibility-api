@@ -29,7 +29,8 @@ function Timer() {
   if (!mounted) return null;
 
   return (
-    <div className="video">
+    <div className="page-position">
+      <h2>Timer Page</h2>
       <div className="music-div">
         <label>Second Counter</label>
         <div>{counter}</div>

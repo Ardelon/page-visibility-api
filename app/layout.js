@@ -52,10 +52,14 @@ export default function RootLayout({ children }) {
       <Script async crossOrigin="anonymous" src={process.env.GOOGLE_AD_SENSE} />
 
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <div className={styles.page}>
+        <div className={"page-layout"}>
           {children}
-          <footer className={styles.footer}>
-            <Link href="/web-api/music" rel="noopener noreferrer">
+          <footer className={"footer"}>
+            <Link
+              href="/web-api/music"
+              rel="noopener noreferrer"
+              className="link"
+            >
               <Image
                 aria-hidden
                 src="/file.svg"
@@ -65,7 +69,11 @@ export default function RootLayout({ children }) {
               />
               Music
             </Link>
-            <Link href="/web-api/video" rel="noopener noreferrer">
+            <Link
+              href="/web-api/video"
+              rel="noopener noreferrer"
+              className="link"
+            >
               <Image
                 aria-hidden
                 src="/window.svg"
@@ -75,7 +83,11 @@ export default function RootLayout({ children }) {
               />
               Video
             </Link>
-            <Link href="/web-api/timer" rel="noopener noreferrer">
+            <Link
+              href="/web-api/timer"
+              rel="noopener noreferrer"
+              className="link"
+            >
               <Image
                 aria-hidden
                 src="/globe.svg"
@@ -85,7 +97,11 @@ export default function RootLayout({ children }) {
               />
               Timer
             </Link>
-            <Link href="/web-api/battery" rel="noopener noreferrer">
+            <Link
+              href="/web-api/battery"
+              rel="noopener noreferrer"
+              className="link"
+            >
               <Image
                 aria-hidden
                 src="/file.svg"
@@ -95,7 +111,11 @@ export default function RootLayout({ children }) {
               />
               Battery
             </Link>
-            <Link href="/web-api/device" rel="noopener noreferrer">
+            <Link
+              href="/web-api/device"
+              rel="noopener noreferrer"
+              className="link"
+            >
               <Image
                 aria-hidden
                 src="/window.svg"
@@ -105,7 +125,11 @@ export default function RootLayout({ children }) {
               />
               Device
             </Link>
-            <Link href="/color-generator" rel="noopener noreferrer">
+            <Link
+              href="/color-generator"
+              rel="noopener noreferrer"
+              className="link"
+            >
               <Image
                 aria-hidden
                 src="/window.svg"
@@ -115,7 +139,11 @@ export default function RootLayout({ children }) {
               />
               Color Generator
             </Link>
-            <Link href="/web-api/eye-dropper" rel="noopener noreferrer">
+            <Link
+              href="/web-api/eye-dropper"
+              rel="noopener noreferrer"
+              className="link"
+            >
               <Image
                 aria-hidden
                 src="/window.svg"
@@ -125,7 +153,11 @@ export default function RootLayout({ children }) {
               />
               Eye Dropper API
             </Link>
-            {/* <Link href="/color-palette-builder" rel="noopener noreferrer">
+            <Link
+              href="/color-palette-builder"
+              rel="noopener noreferrer"
+              className="link"
+            >
               <Image
                 aria-hidden
                 src="/window.svg"
@@ -134,7 +166,7 @@ export default function RootLayout({ children }) {
                 height={16}
               />
               Color Palette Builder
-            </Link> */}
+            </Link>
           </footer>
         </div>
       </body>

@@ -5,7 +5,7 @@ function Battery() {
   const { isCharging, chargingTime, dischargingTime, level } = useBattery();
 
   return (
-    <div className="battery">
+    <div className="page-position">
       <h2>Battery Page</h2>
       <p> {`Battery charging? ${isCharging ? "Yes" : "No"}`}</p>
       <p>{`Battery level: ${level * 100}%`}</p>

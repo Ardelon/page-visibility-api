@@ -1,5 +1,9 @@
 "use client";
-import { isClient } from "@/utility/rendering";
+import {
+  copyToClipboard,
+  generateRandomKey,
+  isClient,
+} from "@/utility/rendering";
 import { useState } from "react";
 
 function EyeDropperPage() {
@@ -29,14 +33,10 @@ function EyeDropperPage() {
     }, 20000);
   };
 
-  const copyToClipboard = (color) => {
-    navigator.clipboard.writeText(color);
-  };
-
   if (!isBrowser) return null;
 
   return (
-    <div className="battery">
+    <div className="page-position">
       <h2>Eye Dropper API Page</h2>
       <div className="color-container"></div>
       <button className="button" onClick={openEyeDropper}>
@@ -48,6 +48,7 @@ function EyeDropperPage() {
         {result.length > 0 &&
           result.map((color) => (
             <div
+              key={generateRandomKey()}
               style={{
                 height: "20px",
                 width: "20px",

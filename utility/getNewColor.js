@@ -9,6 +9,7 @@
 //   ].join("");
 // };
 
+export const colorString = "0123456789ABCDEF";
 export const getNewColor = () => {
   return [
     "#",

@@ -1,5 +1,6 @@
 "use client";
 
+import { copyToClipboard, generateRandomKey } from "@/utility/rendering";
 import { useState } from "react";
 
 const { default: StepCounter } = require("../widgets/StepCouter");
@@ -17,15 +18,20 @@ function DisplayTints({ color }) {
   tints.unshift(`rgb(${color[0]}, ${color[1]}, ${color[2]})`);
 
   return (
-    <div>
+    <div className="tint-container">
       <div className="control-panel">
         <h3>Tints</h3>
         <StepCounter stepCount={steps} setStepCount={setSteps} maxStep={20} />
       </div>
       <div className="palette-container">
-        {tints.map((tint, index) => (
-          <div className="palette-div" key={index} style={{ background: tint }}>
-            <div className="tint-label">{tint}</div>
+        {tints.map((tint) => (
+          <div
+            className="palette-div"
+            key={generateRandomKey()}
+            style={{ background: tint }}
+            onClick={() => copyToClipboard(tint)}
+          >
+            <div className="palette-label">{tint}</div>
           </div>
         ))}
       </div>
