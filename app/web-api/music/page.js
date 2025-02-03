@@ -14,7 +14,6 @@ function Music() {
     setPlayOnHide((state) => !state);
   };
   useLayoutEffect(() => {
-    console.log("isDocumentVisible", isDocumentVisible);
     if (isDocumentVisible) {
       audioRef.current && audioRef.current.play();
     } else {
