@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://ardelon.com"),
   title: "Ardelon - Home Page",
   description: "Ardelon portfolio and demo website",
   applicationName: "Ardelon Portfolio",

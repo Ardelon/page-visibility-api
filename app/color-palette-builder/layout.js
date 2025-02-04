@@ -7,7 +7,7 @@ export const metadata = {
   description:
     "Color Palette Builder that helps to fint tint, shadow and tone values of given color.",
   openGraph: {
-    type: "wesite",
+    type: "website",
     url: "https://ardelon.com/color-palette-builder",
     title: "Ardelon - Color Palette Builder",
     description:
