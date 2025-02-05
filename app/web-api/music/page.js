@@ -1,7 +1,7 @@
 "use client";
 import { useLayoutEffect, useRef, useState } from "react";
 import usePageVisibility from "../../../hooks/pageVisibilityHook.js";
-import { isClient } from "@/utility/rendering.js";
+import { isClient } from "@/utility/rendering.ts";
 function Music() {
   const mounted = isClient();
 
@@ -15,10 +15,10 @@ function Music() {
   };
   useLayoutEffect(() => {
     if (isDocumentVisible) {
-      audioRef.current && audioRef.current.play();
+      audioRef.current.play();
     } else {
       if (!playOnHide) {
-        audioRef.current && audioRef.current.pause();
+        audioRef.current.pause();
       }
     }
   }, [isDocumentVisible, playOnHide]);

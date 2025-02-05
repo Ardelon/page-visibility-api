@@ -2,20 +2,19 @@
 
 import { generateRandomKey } from "@/utility/rendering";
 import { useState } from "react";
-
-const { default: StepCounter } = require("../widgets/StepCouter");
+import StepCounter from "../widgets/StepCouter";
 
 function DisplayTones({ color }) {
   const [steps, setSteps] = useState(10);
 
   const tones = Array.from({ length: steps }, (_, index) => {
     return `rgb(${Math.floor(
-      color[0] + ((128 - color[0]) / steps) * (index + 1)
+      color.r + ((128 - color.r) / steps) * (index + 1)
     )}, ${Math.floor(
-      color[1] + ((128 - color[1]) / steps) * (index + 1)
-    )}, ${Math.floor(color[2] + ((128 - color[2]) / steps) * (index + 1))})`;
+      color.g + ((128 - color.g) / steps) * (index + 1)
+    )}, ${Math.floor(color.b + ((128 - color.b) / steps) * (index + 1))})`;
   });
-  tones.unshift(`rgb(${color[0]}, ${color[1]}, ${color[2]})`);
+  tones.unshift(`rgb(${color.r}, ${color.g}, ${color.b})`);
 
   return (
     <div className="tone-container">

@@ -2,20 +2,19 @@
 
 import { copyToClipboard, generateRandomKey } from "@/utility/rendering";
 import { useState } from "react";
-
-const { default: StepCounter } = require("../widgets/StepCouter");
+import StepCounter from "../widgets/StepCouter";
 
 function DisplayTints({ color }) {
   const [steps, setSteps] = useState(10);
 
   const tints = Array.from({ length: steps }, (_, index) => {
     return `rgb(${Math.floor(
-      color[0] + ((255 - color[0]) / steps) * (index + 1)
+      color.r + ((255 - color.r) / steps) * (index + 1)
     )}, ${Math.floor(
-      color[1] + ((255 - color[1]) / steps) * (index + 1)
-    )}, ${Math.floor(color[2] + ((255 - color[2]) / steps) * (index + 1))})`;
+      color.g + ((255 - color.g) / steps) * (index + 1)
+    )}, ${Math.floor(color.b + ((255 - color.b) / steps) * (index + 1))})`;
   });
-  tints.unshift(`rgb(${color[0]}, ${color[1]}, ${color[2]})`);
+  tints.unshift(`rgb(${color.r}, ${color.g}, ${color.b})`);
 
   return (
     <div className="tint-container">

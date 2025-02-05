@@ -1,7 +1,7 @@
 "use client";
 
 import { getNewColor } from "@/utility/getNewColor";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function ColorGenerator() {
   const [colorList, setColorList] = useState(

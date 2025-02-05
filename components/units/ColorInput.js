@@ -26,7 +26,7 @@ function ColorInput({ color, setColor }) {
     inputRef.current.value =
       mode === "hex"
         ? RGBToHex(color).hex
-        : `rgb(${color[0]},${color[1]},${color[2]})`;
+        : `rgb(${color.r},${color.g},${color.b})`;
   }, [color, mode]);
 
   return (
@@ -38,7 +38,7 @@ function ColorInput({ color, setColor }) {
         placeholder={
           mode === "hex"
             ? RGBToHex(color).hex
-            : `rgb(${color[0]},${color[1]},${color[2]})`
+            : `rgb(${color.r},${color.g},${color.b})`
         }
         onChange={onChange}
       />

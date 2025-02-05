@@ -226,3 +226,7 @@ a {
   align-items: center;
   gap: 40px;
 }
+
+.canvas-container {
+  position: relative;
+}
