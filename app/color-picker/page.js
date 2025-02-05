@@ -1,8 +1,8 @@
 "use client";
 
 import ColorPickerWidget from "@/components/widgets/ColorPickerWidget";
-import { isClient, RGBToHex, rgbToHsl } from "@/utility/rendering";
-import { useEffect, useRef, useState } from "react";
+import { hslToRgb, isClient, RGBToHex, rgbToHsl } from "@/utility/rendering";
+import { useEffect, useState } from "react";
 function ColorPicker() {
   const mounted = isClient();
   const [rgbColor, setRgbColor] = useState({ r: 219, g: 7, b: 61 });
@@ -10,26 +10,40 @@ function ColorPicker() {
     rgbToHsl({ r: rgbColor.r, g: rgbColor.g, b: rgbColor.b })
   );
   const [hexColor, setHexColor] = useState(
-    RGBToHex({ r: rgbColor.r, g: rgbColor.g, b: rgbColor.b })
+    RGBToHex({ r: rgbColor.r, g: rgbColor.g, b: rgbColor.b }.hex)
   );
+  const [updateHsl, setUpdateHsl] = useState(false);
+  const [updateRgb, setUpdateRgb] = useState(false);
 
   useEffect(() => {
-    setHslColor(rgbToHsl({ r: rgbColor.r, g: rgbColor.g, b: rgbColor.b }));
-    setHexColor(RGBToHex({ r: rgbColor.r, g: rgbColor.g, b: rgbColor.b }));
-  }, [rgbColor]);
+    setHexColor(RGBToHex({ r: rgbColor.r, g: rgbColor.g, b: rgbColor.b }).hex);
+    if (updateRgb) {
+      setRgbColor(hslToRgb(hslColor));
+      setUpdateRgb(false);
+    }
+    if (updateHsl) {
+      setHslColor(rgbToHsl(rgbColor));
+      setUpdateHsl(false);
+    }
+  }, [rgbColor, hslColor, updateHsl, updateRgb]);
 
   if (!mounted) return null;
   return (
     <div className="page-position">
       <h2>Color Picker</h2>
       <div className="color-picker-container">
-        <ColorPickerWidget rgbColor={rgbColor} setrgbColor={setRgbColor} />
+        <ColorPickerWidget
+          hue={Number(hslColor.h)}
+          setHslColor={setHslColor}
+          setUpdateRgb={setUpdateRgb}
+        />
         <div className="color-value-container">
           <div className="color-input-container">
             <label>Red</label>
             <input
               value={rgbColor.r}
               onChange={(e) => {
+                setUpdateHsl(true);
                 setRgbColor((state) => {
                   return {
                     ...state,
@@ -44,6 +58,7 @@ function ColorPicker() {
             <input
               value={rgbColor.g}
               onChange={(e) => {
+                setUpdateHsl(true);
                 setRgbColor((state) => {
                   return {
                     ...state,
@@ -58,6 +73,7 @@ function ColorPicker() {
             <input
               value={rgbColor.b}
               onChange={(e) => {
+                setUpdateHsl(true);
                 setRgbColor((state) => {
                   return {
                     ...state,
@@ -71,6 +87,7 @@ function ColorPicker() {
         <div className="hsl-container">
           <div className="color-input-container">
             <label>Hue</label>
+
             <div>{hslColor.h}</div>
           </div>
           <div className="color-input-container">
@@ -86,11 +103,14 @@ function ColorPicker() {
           style={{
             height: "100px",
 
-            background: `hsl(${hslColor[0] * 360},${hslColor[1] * 100}%,${
-              hslColor[2] * 100
+            background: `hsl(${hslColor.h * 360},${hslColor.s * 100}%,${
+              hslColor.l * 100
             }%)`,
           }}
         ></div>
+        <div className="hex-container">
+          <p>{hexColor}</p>
+        </div>
       </div>
     </div>
   );

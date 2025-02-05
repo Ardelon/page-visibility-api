@@ -47,9 +47,19 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <GoogleTagManager gtmId={process.env.GOOGLE_TAG_MANAGER} />
-      <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS} />
-      <Script async crossOrigin="anonymous" src={process.env.GOOGLE_AD_SENSE} />
+      {process.env.GoogleTagManager && (
+        <GoogleTagManager gtmId={process.env.GOOGLE_TAG_MANAGER} />
+      )}
+      {process.env.GOOGLE_ANALYTICS && (
+        <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS} />
+      )}
+      {process.env.GOOGLE_AD_SENSE && (
+        <Script
+          async
+          crossOrigin="anonymous"
+          src={process.env.GOOGLE_AD_SENSE}
+        />
+      )}
 
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <div className={"page-layout"}>

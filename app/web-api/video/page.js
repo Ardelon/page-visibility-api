@@ -12,9 +12,9 @@ function Video() {
 
   useEffect(() => {
     if (isDocumentVisible) {
-      videoRef.current && videoRef.current.play();
+      videoRef.current.play();
     } else {
-      videoRef.current && videoRef.current.pause();
+      videoRef.current.pause();
     }
   }, [isDocumentVisible]);
   if (!mounted) return null;

@@ -2,8 +2,7 @@
 
 import { copyToClipboard, generateRandomKey } from "@/utility/rendering";
 import { useState } from "react";
-
-const { default: StepCounter } = require("../widgets/StepCouter");
+import StepCounter from "../widgets/StepCouter";
 
 function DisplayTints({ color }) {
   const [steps, setSteps] = useState(10);

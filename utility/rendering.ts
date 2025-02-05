@@ -1,3 +1,4 @@
+/* eslint-disable prefer-spread */
 import { colorString } from "./getNewColor";
 
 export const isClient = () => typeof window !== "undefined";
@@ -12,25 +13,11 @@ export function generateRandomKey() {
   ].join("");
 }
 
-export function copyToClipboard(string) {
+export function copyToClipboard(string: string) {
   navigator.clipboard.writeText(string);
 }
 
-export function checkIfHex(hexCode) {
-  return true;
-}
-export function checkIfRGB(RGBCode) {
-  return true;
-}
-
-export function hexToRGB(hexCode) {
-  const isHex = checkIfHex(hexCode);
-  if (!isHex) {
-    alert(
-      "This is not correct hex code format, please provide correct hex format"
-    );
-    return { error: "hexToRGB Error" };
-  }
+export function hexToRGB(hexCode: string) {
   const rgb = { r: 0, g: 0, b: 0 };
   let sanitizedHexCode = "";
   const hashSplit = hexCode.split("#");
@@ -65,31 +52,20 @@ export function hexToRGB(hexCode) {
   }
   return { rgb };
 }
-export function RGBToHex(RGBCode) {
-  const isRGB = checkIfRGB(RGBCode);
-  if (!isRGB) {
-    alert(
-      "This is not correct RGB code format, please provide correct RGB format"
-    );
-    return { error: "RGBToHex Error" };
-  }
-
+export function RGBToHex(
+  RGBCode: { r: number; g: number; b: number } | string
+) {
   if (typeof RGBCode === "string") {
-    const { rgb, error } = parseRGB(RGBCode);
-    if (error) {
-      alert(
-        "This is not correct RGB code format, please provide correct RGB format"
-      );
-      return { error: "RGBToHex Error" };
-    }
+    const rgb = parseRGB(RGBCode);
+
     const hex = [
       "#",
-      colorString[Math.floor(rgb[0] / 16)],
-      colorString[rgb[0] % 16],
-      colorString[Math.floor(rgb[1] / 16)],
-      colorString[rgb[1] % 16],
-      colorString[Math.floor(rgb[2] / 16)],
-      colorString[rgb[2] % 16],
+      colorString[Math.floor(rgb.r / 16)],
+      colorString[rgb.r % 16],
+      colorString[Math.floor(rgb.g / 16)],
+      colorString[rgb.g % 16],
+      colorString[Math.floor(rgb.b / 16)],
+      colorString[rgb.b % 16],
     ].join("");
     return { hex, error: "RGBToHex Error" };
   } else if (typeof RGBCode === "object") {
@@ -106,40 +82,30 @@ export function RGBToHex(RGBCode) {
   }
 }
 
-export function parseRGB(RGBString) {
-  const isRGB = checkIfRGB(RGBString);
-  if (!isRGB) {
-    alert(
-      "This is not correct RGB code format, please provide correct RGB format"
-    );
-    return { error: "RGBToHex Error" };
-  }
-
-  var rgb = RGBString.match(/\d+/g);
+export function parseRGB(RGBString: string) {
+  const rgb = RGBString.match(/\d+/g) || [0, 0, 0];
   return {
-    rgb: {
-      r: Math.max(0, Math.min(255, Number(rgb[0]))),
-      g: Math.max(0, Math.min(255, Number(rgb[1]))),
-      b: Math.max(0, Math.min(255, Number(rgb[2]))),
-    },
+    r: Math.max(0, Math.min(255, Number(rgb[0]))),
+    g: Math.max(0, Math.min(255, Number(rgb[1]))),
+    b: Math.max(0, Math.min(255, Number(rgb[2]))),
   };
 }
 
-export function rgbToHsl(rgbObject) {
-  let r = rgbObject.r / 255;
-  let g = rgbObject.g / 255;
-  let b = rgbObject.b / 255;
+export function rgbToHsl(rgbObject: { r: number; g: number; b: number }) {
+  const r = rgbObject.r / 255;
+  const g = rgbObject.g / 255;
+  const b = rgbObject.b / 255;
 
-  let max = Math.max(r, g, b),
+  const max = Math.max(r, g, b),
     min = Math.min(r, g, b);
-  let h,
-    s,
-    l = (max + min) / 2;
+  let h = 0,
+    s = (max + min) / 2;
+  const l = (max + min) / 2;
 
   if (max == min) {
     h = s = 0; // achromatic
   } else {
-    let d = max - min;
+    const d = max - min;
     s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
 
     switch (max) {
@@ -157,16 +123,20 @@ export function rgbToHsl(rgbObject) {
     h /= 6;
   }
 
-  return { h: h.toFixed(3), s: s.toFixed(3), l: l.toFixed(3) };
+  return {
+    h: Number(h.toFixed(3)),
+    s: Number(s.toFixed(3)),
+    l: Number(l.toFixed(3)),
+  };
 }
 
-export function hslToRgb(h, s, l) {
+export function hslToRgb(props: { h: number; s: number; l: number }) {
+  const { h, s, l } = props;
   let r, g, b;
-
   if (s == 0) {
     r = g = b = l; // achromatic
   } else {
-    function hue2rgb(p, q, t) {
+    function hue2rgb(p: number, q: number, t: number) {
       if (t < 0) t += 1;
       if (t > 1) t -= 1;
       if (t < 1 / 6) return p + (q - p) * 6 * t;
@@ -175,13 +145,17 @@ export function hslToRgb(h, s, l) {
       return p;
     }
 
-    let q = l < 0.5 ? l * (1 + s) : l + s - l * s;
-    let p = 2 * l - q;
+    const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+    const p = 2 * l - q;
 
     r = hue2rgb(p, q, h + 1 / 3);
     g = hue2rgb(p, q, h);
     b = hue2rgb(p, q, h - 1 / 3);
   }
 
-  return { r: r * 255, g: g * 255, b: b * 255 };
+  return {
+    r: Math.floor(Number(r) * 255),
+    g: Math.floor(Number(g)) * 255,
+    b: Math.floor(Number(b) * 255),
+  };
 }

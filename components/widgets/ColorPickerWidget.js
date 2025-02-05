@@ -1,20 +1,15 @@
 "use client";
 
-import { RGBToHex, rgbToHsl } from "@/utility/rendering";
+import { rgbToHsl } from "@/utility/rendering";
 import { useEffect, useRef } from "react";
 
-function ColorPickerWidget({ rgbColor, setRgbColor }) {
+function ColorPickerWidget(props) {
+  const { hue, setHslColor, setUpdateRgb } = props;
   const canvasRef = useRef(null);
   const canvasColorRef = useRef(null);
 
   useEffect(() => {
     var ColorCtx = canvasRef.current.getContext("2d");
-
-    var { hex: color } = RGBToHex({
-      r: rgbColor.r,
-      g: rgbColor.g,
-      b: rgbColor.b,
-    });
 
     let gradientH = ColorCtx.createLinearGradient(
       0,
@@ -23,7 +18,7 @@ function ColorPickerWidget({ rgbColor, setRgbColor }) {
       0
     );
     gradientH.addColorStop(0, "#fff");
-    gradientH.addColorStop(1, color);
+    gradientH.addColorStop(1, `hsl(${hue * 360}, 100%,50%)`);
     ColorCtx.fillStyle = gradientH;
     ColorCtx.fillRect(0, 0, ColorCtx.canvas.width, ColorCtx.canvas.height);
 
@@ -39,18 +34,23 @@ function ColorPickerWidget({ rgbColor, setRgbColor }) {
       "click",
       function (event) {
         var ColorCtx = canvasRef.current.getContext("2d");
-        let x = event.offsetX; // Get X coordinate
-        let y = event.offsetY; // Get Y coordinate
+        let x = event.offsetX;
+        let y = event.offsetY;
         const pixel = ColorCtx.getImageData(x, y, 1, 1)["data"];
-        const newHsl = rgbToHsl(pixel[0], pixel[1], pixel[2]);
-        // setHslColor(rgbToHsl(newHsl[0], newHsl[1], newHsl[2]));
+        const newHsl = rgbToHsl({
+          r: Number(pixel[0]),
+          g: Number(pixel[1]),
+          b: Number(pixel[2]),
+        });
+        setHslColor({ h: hue, s: newHsl.s, l: newHsl.l });
+        setUpdateRgb(true);
       },
       { signal: controller.signal }
     );
     return () => {
       controller.abort();
     };
-  }, [rgbColor]);
+  }, [hue]);
 
   useEffect(() => {
     var ColorCtx = canvasColorRef.current.getContext("2d");
@@ -63,12 +63,27 @@ function ColorPickerWidget({ rgbColor, setRgbColor }) {
 
     ColorCtx.fillStyle = gradientV;
     ColorCtx.fillRect(0, 0, ColorCtx.canvas.width, ColorCtx.canvas.height);
-  }, [rgbColor]);
+
+    canvasColorRef.current.addEventListener("click", function (e) {
+      var ColorCtx = canvasColorRef.current.getContext("2d");
+      let x = e.offsetX;
+      let y = e.offsetY;
+      const pixel = ColorCtx.getImageData(x, y, 1, 1)["data"];
+      const newHsl = rgbToHsl({
+        r: Number(pixel[0]),
+        g: Number(pixel[1]),
+        b: Number(pixel[2]),
+      });
+      setHslColor(newHsl);
+      setUpdateRgb(true);
+    });
+  }, []);
 
   return (
     <>
       <div className="canvas-container">
         <canvas width="300px" height="300px" ref={canvasRef}></canvas>
+
         <canvas width="50px" height="300px" ref={canvasColorRef}></canvas>
       </div>
     </>
