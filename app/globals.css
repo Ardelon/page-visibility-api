@@ -202,6 +202,7 @@ a {
   display: flex;
   align-items: center;
   gap: 8px;
+  text-decoration: underline;
 }
 
 .tint-container {
@@ -217,4 +218,11 @@ a {
 .color-input {
   display: flex;
   gap: 10px;
+}
+
+.color-input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
 }

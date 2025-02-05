@@ -56,6 +56,62 @@ export default function RootLayout({ children }) {
           {children}
           <footer className={"footer"}>
             <Link
+              href="/color-catalog"
+              rel="noopener noreferrer"
+              className="link"
+            >
+              <Image
+                aria-hidden
+                src="/file.svg"
+                alt="File icon"
+                width={16}
+                height={16}
+              />
+              Color Catalog
+            </Link>
+            <Link
+              href="/color-generator"
+              rel="noopener noreferrer"
+              className="link"
+            >
+              <Image
+                aria-hidden
+                src="/window.svg"
+                alt="Window icon"
+                width={16}
+                height={16}
+              />
+              Color Generator
+            </Link>
+            <Link
+              href="/web-api/eye-dropper"
+              rel="noopener noreferrer"
+              className="link"
+            >
+              <Image
+                aria-hidden
+                src="/window.svg"
+                alt="Window icon"
+                width={16}
+                height={16}
+              />
+              Eye Dropper API
+            </Link>
+            <Link
+              href="/color-palette-builder"
+              rel="noopener noreferrer"
+              className="link"
+            >
+              <Image
+                aria-hidden
+                src="/window.svg"
+                alt="Window icon"
+                width={16}
+                height={16}
+              />
+              Color Palette Builder
+            </Link>
+            <Link
               href="/web-api/music"
               rel="noopener noreferrer"
               className="link"
@@ -124,48 +180,6 @@ export default function RootLayout({ children }) {
                 height={16}
               />
               Device
-            </Link>
-            <Link
-              href="/color-generator"
-              rel="noopener noreferrer"
-              className="link"
-            >
-              <Image
-                aria-hidden
-                src="/window.svg"
-                alt="Window icon"
-                width={16}
-                height={16}
-              />
-              Color Generator
-            </Link>
-            <Link
-              href="/web-api/eye-dropper"
-              rel="noopener noreferrer"
-              className="link"
-            >
-              <Image
-                aria-hidden
-                src="/window.svg"
-                alt="Window icon"
-                width={16}
-                height={16}
-              />
-              Eye Dropper API
-            </Link>
-            <Link
-              href="/color-palette-builder"
-              rel="noopener noreferrer"
-              className="link"
-            >
-              <Image
-                aria-hidden
-                src="/window.svg"
-                alt="Window icon"
-                width={16}
-                height={16}
-              />
-              Color Palette Builder
             </Link>
           </footer>
         </div>
