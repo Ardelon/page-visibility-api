@@ -66,6 +66,20 @@ export default function RootLayout({ children }) {
           {children}
           <footer className={"footer"}>
             <Link
+              href="/color-picker"
+              rel="noopener noreferrer"
+              className="link"
+            >
+              <Image
+                aria-hidden
+                src="/file.svg"
+                alt="File icon"
+                width={16}
+                height={16}
+              />
+              Color Picker
+            </Link>
+            <Link
               href="/color-catalog"
               rel="noopener noreferrer"
               className="link"
