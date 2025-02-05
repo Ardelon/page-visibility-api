@@ -31,30 +31,30 @@ export function hexToRGB(hexCode) {
     );
     return { error: "hexToRGB Error" };
   }
-  const rgb = [0, 0, 0];
+  const rgb = { r: 0, g: 0, b: 0 };
   let sanitizedHexCode = "";
   const hashSplit = hexCode.split("#");
   if (hashSplit.length > 1) sanitizedHexCode = hashSplit[1];
   else sanitizedHexCode = hashSplit[0];
 
   if (sanitizedHexCode.length === 3) {
-    rgb[0] =
+    rgb.r =
       colorString.indexOf(sanitizedHexCode[0].toUpperCase()) * 16 +
       colorString.indexOf(sanitizedHexCode[0].toUpperCase());
-    rgb[1] =
+    rgb.g =
       colorString.indexOf(sanitizedHexCode[1].toUpperCase()) * 16 +
       colorString.indexOf(sanitizedHexCode[1].toUpperCase());
-    rgb[2] =
+    rgb.b =
       colorString.indexOf(sanitizedHexCode[2].toUpperCase()) * 16 +
       colorString.indexOf(sanitizedHexCode[2].toUpperCase());
   } else if (sanitizedHexCode.length === 6) {
-    rgb[0] =
+    rgb.r =
       colorString.indexOf(sanitizedHexCode[0].toUpperCase()) * 16 +
       colorString.indexOf(sanitizedHexCode[1].toUpperCase());
-    rgb[1] =
+    rgb.g =
       colorString.indexOf(sanitizedHexCode[2].toUpperCase()) * 16 +
       colorString.indexOf(sanitizedHexCode[3].toUpperCase());
-    rgb[2] =
+    rgb.b =
       colorString.indexOf(sanitizedHexCode[4].toUpperCase()) * 16 +
       colorString.indexOf(sanitizedHexCode[5].toUpperCase());
   } else {
@@ -92,22 +92,22 @@ export function RGBToHex(RGBCode) {
       colorString[rgb[2] % 16],
     ].join("");
     return { hex, error: "RGBToHex Error" };
-  } else if (Array.isArray(RGBCode)) {
+  } else if (typeof RGBCode === "object") {
     const hex = [
       "#",
-      colorString[Math.floor(RGBCode[0] / 16)],
-      colorString[RGBCode[0] % 16],
-      colorString[Math.floor(RGBCode[1] / 16)],
-      colorString[RGBCode[1] % 16],
-      colorString[Math.floor(RGBCode[2] / 16)],
-      colorString[RGBCode[2] % 16],
+      colorString[Math.floor(RGBCode.r / 16)],
+      colorString[RGBCode.r % 16],
+      colorString[Math.floor(RGBCode.g / 16)],
+      colorString[RGBCode.g % 16],
+      colorString[Math.floor(RGBCode.b / 16)],
+      colorString[RGBCode.b % 16],
     ].join("");
     return { hex, error: "RGBToHex Error" };
   }
 }
 
-export function parseRGB(RGBCode) {
-  const isRGB = checkIfRGB(RGBCode);
+export function parseRGB(RGBString) {
+  const isRGB = checkIfRGB(RGBString);
   if (!isRGB) {
     alert(
       "This is not correct RGB code format, please provide correct RGB format"
@@ -115,16 +115,20 @@ export function parseRGB(RGBCode) {
     return { error: "RGBToHex Error" };
   }
 
-  var rgb = RGBCode.match(/\d+/g);
+  var rgb = RGBString.match(/\d+/g);
   return {
-    rgb: rgb.map((value) => {
-      return Math.max(0, Math.min(255, Number(value)));
-    }),
+    rgb: {
+      r: Math.max(0, Math.min(255, Number(rgb[0]))),
+      g: Math.max(0, Math.min(255, Number(rgb[1]))),
+      b: Math.max(0, Math.min(255, Number(rgb[2]))),
+    },
   };
 }
 
-export function rgbToHsl(r, g, b) {
-  (r /= 255), (g /= 255), (b /= 255);
+export function rgbToHsl(rgbObject) {
+  let r = rgbObject.r / 255;
+  let g = rgbObject.g / 255;
+  let b = rgbObject.b / 255;
 
   let max = Math.max(r, g, b),
     min = Math.min(r, g, b);
@@ -153,5 +157,31 @@ export function rgbToHsl(r, g, b) {
     h /= 6;
   }
 
-  return [h.toFixed(3), s.toFixed(3), l.toFixed(3)];
+  return { h: h.toFixed(3), s: s.toFixed(3), l: l.toFixed(3) };
+}
+
+export function hslToRgb(h, s, l) {
+  let r, g, b;
+
+  if (s == 0) {
+    r = g = b = l; // achromatic
+  } else {
+    function hue2rgb(p, q, t) {
+      if (t < 0) t += 1;
+      if (t > 1) t -= 1;
+      if (t < 1 / 6) return p + (q - p) * 6 * t;
+      if (t < 1 / 2) return q;
+      if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+      return p;
+    }
+
+    let q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+    let p = 2 * l - q;
+
+    r = hue2rgb(p, q, h + 1 / 3);
+    g = hue2rgb(p, q, h);
+    b = hue2rgb(p, q, h - 1 / 3);
+  }
+
+  return { r: r * 255, g: g * 255, b: b * 255 };
 }

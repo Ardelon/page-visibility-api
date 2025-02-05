@@ -6,7 +6,7 @@ import DisplayTones from "@/components/units/DisplayTones";
 import { useState } from "react";
 
 function ColorPaletteBuilder() {
-  const [color, setColor] = useState([219, 7, 61]);
+  const [color, setColor] = useState({ r: 219, g: 7, b: 61 });
   return (
     <>
       <div className="page-position color-palette-container ">

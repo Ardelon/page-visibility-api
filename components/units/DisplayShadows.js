@@ -10,12 +10,12 @@ function DisplayShadows({ color }) {
 
   const shadows = Array.from({ length: steps }, (_, index) => {
     return `rgb(${Math.floor(
-      color[0] - (color[0] / steps) * (index + 1)
-    )}, ${Math.floor(
-      color[1] - (color[1] / steps) * (index + 1)
-    )}, ${Math.floor(color[2] - (color[2] / steps) * (index + 1))})`;
+      color.r - (color.r / steps) * (index + 1)
+    )}, ${Math.floor(color.g - (color.g / steps) * (index + 1))}, ${Math.floor(
+      color.b - (color.b / steps) * (index + 1)
+    )})`;
   });
-  shadows.unshift(`rgb(${color[0]}, ${color[1]}, ${color[2]})`);
+  shadows.unshift(`rgb(${color.r}, ${color.g}, ${color.b})`);
 
   return (
     <div className="shadow-container">

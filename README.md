@@ -1,3 +1,4 @@
 - [Get EventListeners](https://stackoverflow.com/questions/10284120/how-to-know-how-many-event-listeners-there-are-on-the-page)
 - [How to Use the Page Visibility API and Custom React Hooks to Improve User Experience](https://blog.bitsrc.io/how-to-use-the-page-visibility-api-and-custom-react-hooks-to-improve-user-experience-adb08b126c5a)
 - [Device Memory API - Developer Chrome](https://developer.chrome.com/blog/device-memory?hl=tr)
+- [Color Transformation Gist](https://gist.github.com/mjackson/5311256)
