@@ -1,10 +1,10 @@
 "use client";
 
-import { isClient } from "@/utility/rendering";
 import { useEffect, useMemo, useState } from "react";
+import { useMounted } from "./useMounted";
 
 export function useIsIntersecting(ref: Element | null) {
-  const isMounted = isClient();
+  const isMounted = useMounted();
   const [isIntersecting, setIsIntersecting] = useState<boolean>(false);
 
   const observer = useMemo(() => {
@@ -27,7 +27,7 @@ export function useIsIntersecting(ref: Element | null) {
     return () => {
       if (observer) observer.disconnect();
     };
-  }, [observer, ref]);
+  }, [observer, ref, isMounted]);
 
   return isIntersecting;
 }
