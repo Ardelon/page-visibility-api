@@ -9,6 +9,12 @@ export default function sitemap() {
       priority: 1,
     },
     {
+      url: `${baseUrl}web-api/intersection-observer/`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 1,
+    },
+    {
       url: `${baseUrl}color-picker/`,
       lastModified: new Date(),
       changeFrequency: "monthly",
