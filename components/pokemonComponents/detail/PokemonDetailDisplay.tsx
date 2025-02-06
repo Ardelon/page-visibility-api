@@ -1,28 +1,28 @@
-import { getPokemon } from "@/service";
-import React from "react";
-interface PokemonDetailDisplayProps {
-  identifier: string;
-}
+// import { getPokemon } from "@/service";
+// import React from "react";
+// interface PokemonDetailDisplayProps {
+//   identifier: string;
+// }
 
-async function getData(identifier: string) {
-  const pokemon = await getPokemon(identifier);
+// async function getData(identifier: string) {
+//   const pokemon = await getPokemon(identifier);
 
-  if ("message" in pokemon) {
-    console.error(pokemon.message);
-    return;
-  }
+//   if ("message" in pokemon) {
+//     console.error(pokemon.message);
+//     return;
+//   }
 
-  return pokemon;
-}
+//   return pokemon;
+// }
 
-const PokemonDetailDisplay: React.FC<PokemonDetailDisplayProps> = async ({
-  identifier,
-}) => {
-  // const pokemon = await getData(identifier);
+// const PokemonDetailDisplay: React.FC<PokemonDetailDisplayProps> = async ({
+//   identifier,
+// }) => {
+//   // const pokemon = await getData(identifier);
 
-  // console.log(pokemon);
+//   // console.log(pokemon);
 
-  return <div></div>;
-};
+//   return <div></div>;
+// };
 
-export default PokemonDetailDisplay;
+// export default PokemonDetailDisplay;

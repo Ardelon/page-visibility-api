@@ -2,6 +2,11 @@ import { Gallery, GallerySkeleton } from "@/components/pokemonComponents";
 import { getPokemonList } from "@/service";
 import { Pagination } from "@/components/pokemonComponents/gallery";
 
+type Props = {
+  params: Promise<{ page: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
+
 async function fetchPokemons(page: number) {
   const limit: number = parseInt(process.env.POKEMON_DISPLAY_COUNT ?? "20", 10);
   const offset = (page - 1) * limit;
@@ -16,12 +21,9 @@ async function fetchPokemons(page: number) {
   };
 }
 
-const PokemonGalleryPage = async ({
-  searchParams,
-}: {
-  searchParams: { page?: string };
-}) => {
-  const page = parseInt(searchParams.page ?? "1", 10);
+const PokemonGalleryPage = async ({ searchParams }: Props) => {
+  const { page: pagination } = await searchParams;
+  const page = parseInt((pagination as string) ?? "1", 10);
 
   const {
     pokemonList,

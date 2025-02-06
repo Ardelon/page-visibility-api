@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import React, { KeyboardEvent } from "react";
 
-const Input: React.FC<{}> = () => {
+const Input: React.FC = () => {
   const router = useRouter();
 
   const fn = (e: KeyboardEvent<HTMLInputElement>) => {

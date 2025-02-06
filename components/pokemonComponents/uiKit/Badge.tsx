@@ -1,4 +1,4 @@
-import { ITypeColors } from "@/interface";
+// import { ITypeColors } from "@/interface";
 import React from "react";
 
 interface BadgeProps {

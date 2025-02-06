@@ -2,6 +2,7 @@ import { IPokemon } from "@/interface/pokemonInterface";
 import { capitalizeFirstLetter } from "@/utility";
 import React from "react";
 import { Badge, Score } from "../uiKit";
+import Image from "next/image";
 
 interface PokemonDetailLeftSideInterface {
   pokemon: IPokemon;
@@ -16,10 +17,13 @@ const PokemonDetailLeftSide: React.FC<PokemonDetailLeftSideInterface> = ({
         <h1 className="md:hidden text-5xl font-bold text-[#3865d2] text-center ">
           {capitalizeFirstLetter(pokemon.name)}
         </h1>
-        <img
+        <Image
           alt={`${pokemon.name} default front image`}
           className="w-96 m-auto"
           src={pokemon.sprites.front_default}
+          width={0}
+          height={0}
+          sizes="100vw"
         />
       </div>
       <div>

@@ -2,6 +2,7 @@ import { getPokemon } from "@/service";
 import { capitalizeFirstLetter, preparePokemonIdForDisplay } from "@/utility";
 import Link from "next/link";
 import { Badge } from "../uiKit";
+import Image from "next/image";
 
 interface propsInterface {
   pokemon: { name: string; url: string };
@@ -21,10 +22,13 @@ export const GalleryCard = async (props: propsInterface) => {
   return (
     <div className="  md:w-64 w-full  p-2 border-2 border-[#3865d2]   rounded-lg ">
       <Link href={`/pokemon-app/pokemon/${identifier}`}>
-        <img
+        <Image
           alt={`${pokemon.name} default front image`}
           className=" md:w-60 md:h-60 w-full "
           src={pokemon.sprites.front_default}
+          width={0}
+          height={0}
+          sizes="100vw"
         />
 
         <div>

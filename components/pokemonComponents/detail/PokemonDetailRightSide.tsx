@@ -1,7 +1,7 @@
 import { IEvolutionChain } from "@/interface/evolutionChainInterface";
 import { IPokemon } from "@/interface/pokemonInterface";
 import { capitalizeFirstLetter, preparePokemonIdForDisplay } from "@/utility";
-import React from "react";
+import React, { ReactNode } from "react";
 import PokemonCard from "./PokemonCard";
 import { IErrorResponse } from "@/interface";
 
@@ -13,7 +13,7 @@ interface PokemonDetailRightSideInterface {
 const PokemonDetailRightSide: React.FC<PokemonDetailRightSideInterface> = (
   props
 ) => {
-  let evolutionChainCards = new Array();
+  let evolutionChainCards: Array<ReactNode> = [];
 
   if ("species" in props.evolutionChain) {
     evolutionChainCards = props.evolutionChain?.species.map((chain, index) => {

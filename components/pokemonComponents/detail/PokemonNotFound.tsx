@@ -1,16 +1,16 @@
-import { getPokemon } from "@/service";
+// import { getPokemon } from "@/service";
 import React from "react";
 import { PokemonNotFoundCard } from ".";
 
-interface PokemonNotFoundProps {}
+// interface PokemonNotFoundProps {}
 
-async function getData(identifier: string) {
-  const pokemon = await getPokemon(identifier);
+// async function getData(identifier: string) {
+//   const pokemon = await getPokemon(identifier);
 
-  return pokemon;
-}
+//   return pokemon;
+// }
 
-const PokemonNotFound: React.FC<PokemonNotFoundProps> = () => {
+const PokemonNotFound: React.FC = () => {
   const pokemonIdList = [];
   for (
     let i = 0;

@@ -6,6 +6,11 @@ import {
 } from "@/components/pokemonComponents/detail";
 import { getEvolutionChain, getPokemon, getSpecies } from "@/service";
 
+type Props = {
+  params: Promise<{ pokemon: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
+
 async function solveEvolutionChain(identifier: number) {
   const species = await getSpecies(identifier);
 
@@ -28,12 +33,9 @@ async function getData(identifier: string) {
   return pokemon;
 }
 
-const PokemonDetailPage = async ({
-  params,
-}: {
-  params: { pokemon: string };
-}) => {
-  const pokemon = await getData(params.pokemon);
+const PokemonDetailPage = async ({ params }: Props) => {
+  const { pokemon: pokemonId } = await params;
+  const pokemon = await getData(pokemonId);
 
   if ("message" in pokemon) {
     console.error(pokemon.message);
@@ -44,7 +46,7 @@ const PokemonDetailPage = async ({
 
   return (
     <div className="flex flex-col">
-      <PokemonDetailHeader identifier={params.pokemon} />
+      <PokemonDetailHeader identifier={pokemonId} />
       <div className="flex md:flex-row flex-col w-4/5 m-auto gap-8 justify-center ">
         <PokemonDetailLeftSide pokemon={pokemon} />
         <PokemonDetailRightSide

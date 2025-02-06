@@ -7,6 +7,7 @@ import {
 import Link from "next/link";
 import React from "react";
 import { Sphere } from "../uiKit";
+import Image from "next/image";
 
 interface PokemonCardProps {
   chain: {
@@ -32,9 +33,13 @@ const PokemonCard: React.FC<PokemonCardProps> = async (chain) => {
     <div className="">
       <Link href={`/pokemon-app/pokemon/${pokemon?.id}`}>
         <div className="flex flex-row">
-          <img
+          <Image
             alt={`${pokemon.name} default front image`}
             src={pokemon?.sprites.front_default}
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{ width: "100%", height: "auto" }}
           />
           <div className="ml-2">
             <h1 className="font-semibold text-lg">

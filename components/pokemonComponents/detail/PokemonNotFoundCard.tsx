@@ -3,6 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { Badge } from "../uiKit";
 import { getPokemon } from "@/service";
+import Image from "next/image";
 
 interface PokemonNotFoundProps {
   identifier: number;
@@ -22,10 +23,13 @@ const PokemonNotFound: React.FC<PokemonNotFoundProps> = async ({
     // <div className="w-64 p-2 border-2 border-[#3865d2]   rounded-lg ">
     <div className="  md:w-64 w-full  p-2 border-2 border-[#3865d2]   rounded-lg ">
       <Link href={`/pokemon-app/pokemon/${identifier}`}>
-        <img
+        <Image
           alt={`${pokemon.name} default front image`}
           className=" md:w-60 md:h-60 w-full "
           src={pokemon.sprites.front_default}
+          width={0}
+          height={0}
+          sizes="100vw"
         />
 
         <div>

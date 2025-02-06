@@ -65,6 +65,30 @@ export default function RootLayout({ children }) {
         <div className={"page-layout"}>
           {children}
           <footer className={"footer"}>
+            <Link href="/" rel="noopener noreferrer" className="link">
+              <Image
+                aria-hidden
+                src="/file.svg"
+                alt="File icon"
+                width={16}
+                height={16}
+              />
+              Home Page
+            </Link>
+            <Link
+              href="/pokemon-app/pokemon?page=1"
+              rel="noopener noreferrer"
+              className="link"
+            >
+              <Image
+                aria-hidden
+                src="/file.svg"
+                alt="File icon"
+                width={16}
+                height={16}
+              />
+              Pokemon
+            </Link>
             <Link
               href="/web-api/intersection-observer"
               rel="noopener noreferrer"

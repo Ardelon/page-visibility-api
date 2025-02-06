@@ -1,8 +1,8 @@
 "use client";
 import { useRouter } from "next/navigation";
-import React, { MouseEvent } from "react";
+import React from "react";
 
-const Button: React.FC<{}> = () => {
+const Button: React.FC = () => {
   const router = useRouter();
 
   const fn = () => {
@@ -16,7 +16,7 @@ const Button: React.FC<{}> = () => {
 
     const inputValue = inputElement.value.trim();
     if (inputValue) {
-      router.push(`/pokemon/${inputValue}`);
+      router.push(`/pokemon-app/pokemon/${inputValue}`);
     } else {
       console.warn("No value entered in the input.");
     }
