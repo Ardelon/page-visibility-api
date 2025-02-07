@@ -1,6 +1,10 @@
+import { getPokemonList } from "@/service";
+
 const baseUrl = "https://ardelon.com/";
 
-export default function sitemap() {
+export default async function sitemap() {
+  const pokemonList = await getPokemonList(0, 1025);
+
   return [
     {
       url: `${baseUrl}`,
@@ -74,5 +78,16 @@ export default function sitemap() {
       changeFrequency: "monthly",
       priority: 0.1,
     },
+    {
+      url: `${baseUrl}pokemon-app`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.1,
+    },
+    ...pokemonList.results.map((pokemon) => ({
+      url: `${baseUrl}pokemon-app/${pokemon.name}`,
+      lastModified: new Date(),
+      priority: 0.1,
+    })),
   ];
 }

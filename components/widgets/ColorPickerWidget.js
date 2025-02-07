@@ -55,7 +55,7 @@ function ColorPickerWidget(props) {
   useEffect(() => {
     var ColorCtx = canvasColorRef.current.getContext("2d");
 
-    let gradientV = ColorCtx.createLinearGradient(0, 0, 0, 300);
+    let gradientV = ColorCtx.createLinearGradient(0, 0, 0, 350);
     for (let i = 0; i < 360; i++) {
       gradientV.addColorStop(i / 360 || 0, `hsl(${i},100%,50%)`);
       gradientV.addColorStop((i + 1) / 360, `hsl(${i + 1},100%,50%)`);
@@ -82,9 +82,18 @@ function ColorPickerWidget(props) {
   return (
     <>
       <div className="canvas-container">
-        <canvas width="300px" height="300px" ref={canvasRef}></canvas>
-
-        <canvas width="50px" height="300px" ref={canvasColorRef}></canvas>
+        <canvas
+          width="350px"
+          height="350px"
+          ref={canvasRef}
+          className="inline-block"
+        ></canvas>
+        <canvas
+          width="50px"
+          height="350px"
+          ref={canvasColorRef}
+          className="inline-block"
+        ></canvas>
       </div>
     </>
   );

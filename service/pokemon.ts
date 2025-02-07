@@ -5,11 +5,18 @@ import axios from "axios";
 
 type PokemonListResponse = IPokemonList | IErrorResponse;
 
-const getPokemonList = (offset: number = 0): Promise<PokemonListResponse> => {
+const getPokemonList = (
+  offset: number = 0,
+  pokemonDisplayCount: number = -1
+): Promise<PokemonListResponse> => {
   const config = {
     method: "get",
     maxBodyLength: Infinity,
-    url: `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${process.env.POKEMON_DISPLAY_COUNT}`,
+    url: `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${
+      pokemonDisplayCount < 0
+        ? process.env.POKEMON_DISPLAY_COUNT
+        : pokemonDisplayCount
+    }`,
     headers: {},
   };
 

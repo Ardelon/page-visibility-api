@@ -11,7 +11,7 @@ export const Gallery = (props: propsInterface) => {
   });
 
   return (
-    <section className="flex flex-wrap w-4/5 m-auto gap-4 justify-center">
+    <section className="flex flex-wrap m-auto gap-4 justify-center">
       {galleryCards}
     </section>
   );

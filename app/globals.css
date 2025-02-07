@@ -184,12 +184,12 @@ a {
   display: flex;
   gap: 24px;
   min-height: 100px;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
 .page-layout {
-  display: grid;
+  display: flex;
   overflow: auto;
 }
 
@@ -203,7 +203,7 @@ a {
   max-width: 80%;
   align-items: center;
   flex-grow: 1;
-  min-height: calc(100vh - 100px);
+  min-height: calc(100vh - 236px);
   box-sizing: border-box;
 }
 

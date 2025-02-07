@@ -33,7 +33,7 @@ function ColorPicker() {
   return (
     <div className="page-position">
       <PageWelcoming {...clientData} />
-      <div className="color-picker-container">
+      <div className="">
         <ColorPickerWidget
           hue={Number(hslColor.h)}
           setHslColor={setHslColor}
@@ -43,6 +43,7 @@ function ColorPicker() {
           <div className="color-input-container">
             <label>Red</label>
             <input
+              className=""
               value={rgbColor.r}
               onChange={(e) => {
                 setUpdateHsl(true);
