@@ -1,9 +1,16 @@
-export default function Layout({ children }) {
+import { ReactNode } from "react";
+
+interface LayoutProps {
+  children: ReactNode;
+}
+
+export default function Layout(props: LayoutProps) {
+  const { children } = props;
   return <>{children} </>;
 }
 
 const title = "Ardelon - Color Picker";
-const description = "Color picker with canvas.RGB, HSL and Hex color values.";
+const description = `Color picker with canvas.RGB, HSL and Hex color values.`;
 const imageUrl = `/color_picker.webp`;
 export const metadata = {
   title,
