@@ -1,7 +1,9 @@
 // interface IntersectionOberverProps {}
 
 import RandomBlock from "@/components/demoComponents/randomBlock";
+import PageWelcoming from "@/components/units/PageWelcoming";
 import { generateRandomKey } from "@/utility/rendering";
+import { clientData } from "./data";
 
 function IntersectionObserver() {
   const renderRandomBlocks = () => {
@@ -13,15 +15,7 @@ function IntersectionObserver() {
 
   return (
     <div style={{ padding: "40px" }} className="page-position">
-      <h2 style={{ margin: "20px auto" }}>Intersection Observer API</h2>
-      <p style={{ lineHeight: "1.5", width: "80%", marginBottom: "40px" }}>
-        Web API Intersection Observer API example using React custom hooks. In
-        the demo, there is multiple React Elements that initialized with
-        useIntersectionObserver hook and their relative counter increases
-        everytime the blocks became visible according to intersection observer
-        hook.At the same time, their background tone darkens as the counter
-        increase.
-      </p>
+      <PageWelcoming {...clientData} />
       {renderRandomBlocks()}
     </div>
   );

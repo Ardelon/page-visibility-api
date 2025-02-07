@@ -1,4 +1,5 @@
-import { ISpecies } from "@/interface/speciesInterface";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { ISpecies } from "@/interface";
 
 const mapSpecies = (response: any) => {
   const data = response.data;

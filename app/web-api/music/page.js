@@ -2,6 +2,8 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import usePageVisibility from "../../../hooks/pageVisibilityHook.js";
 import { isClient } from "@/utility/rendering.ts";
+import PageWelcoming from "@/components/units/PageWelcoming";
+import { clientData } from "./data";
 function Music() {
   const mounted = isClient();
 
@@ -25,7 +27,7 @@ function Music() {
   if (!mounted) return null;
   return (
     <div className="page-position">
-      <h2>Music Page</h2>
+      <PageWelcoming {...clientData} />
       <audio
         ref={audioRef}
         controls

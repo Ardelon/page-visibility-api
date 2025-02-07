@@ -1,7 +1,8 @@
-import { IEvolutionChain } from "@/interface/evolutionChainInterface";
+import { IEvolutionChain } from "@/interface";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const mapEvolutionChain = (response: any) => {
-  const data = response.data;
+  const data = response?.data;
   const collection: IEvolutionChain = {
     id: data.id,
     species: [],

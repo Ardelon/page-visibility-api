@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { clientData } from "./data";
 
 interface LayoutProps {
   children: ReactNode;
@@ -9,8 +10,7 @@ export default function Layout(props: LayoutProps) {
   return <>{children} </>;
 }
 
-const title = "Ardelon - Color Generator";
-const description = `Generating random colors on demand. It can be copied easily in hex code format. `;
+const { title, description } = clientData;
 const imageUrl = `/color-generator.webp`;
 export const metadata = {
   title,

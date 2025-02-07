@@ -3,6 +3,8 @@
 import usePageVisibility from "@/hooks/pageVisibilityHook";
 import { isClient } from "@/utility/rendering";
 import { useEffect, useRef } from "react";
+import { clientData } from "./data";
+import PageWelcoming from "@/components/units/PageWelcoming";
 
 function Video() {
   const mounted = isClient();
@@ -20,7 +22,7 @@ function Video() {
   if (!mounted) return null;
   return (
     <div className="page-position">
-      <h2>Video Page</h2>
+      <PageWelcoming {...clientData} />
       <video
         controls
         loop

@@ -1,8 +1,8 @@
-import { IPokemon } from "@/interface/pokemonInterface";
 import { capitalizeFirstLetter } from "@/utility";
 import React from "react";
 import { Badge, Score } from "../uiKit";
 import Image from "next/image";
+import { IPokemon } from "@/interface";
 
 interface PokemonDetailLeftSideInterface {
   pokemon: IPokemon;

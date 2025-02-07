@@ -1,5 +1,4 @@
-import { IPokemon, IPokemonList } from "@/interface/pokemonInterface";
-import { IErrorResponse } from "@/interface/serviceInterface";
+import { IErrorResponse, IPokemon, IPokemonList } from "@/interface";
 import { mapPokemon, mapPokemonList } from "@/mapper";
 import { validatePokemonData, validatePokemonListData } from "@/validator";
 import axios from "axios";
@@ -7,7 +6,7 @@ import axios from "axios";
 type PokemonListResponse = IPokemonList | IErrorResponse;
 
 const getPokemonList = (offset: number = 0): Promise<PokemonListResponse> => {
-  let config = {
+  const config = {
     method: "get",
     maxBodyLength: Infinity,
     url: `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${process.env.POKEMON_DISPLAY_COUNT}`,
@@ -33,7 +32,7 @@ const getPokemonList = (offset: number = 0): Promise<PokemonListResponse> => {
 type PokemonResponse = IPokemon | IErrorResponse;
 
 const getPokemon = (identifier: string): Promise<PokemonResponse> => {
-  let config = {
+  const config = {
     method: "get",
     maxBodyLength: Infinity,
     url: `https://pokeapi.co/api/v2/pokemon/${identifier}`,

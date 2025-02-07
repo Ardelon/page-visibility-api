@@ -1,7 +1,9 @@
 "use client";
 
+import PageWelcoming from "@/components/units/PageWelcoming";
 import { getNewColor } from "@/utility/getNewColor";
 import { useState } from "react";
+import { clientData } from "./data";
 
 function ColorGenerator() {
   const [colorList, setColorList] = useState(
@@ -14,7 +16,7 @@ function ColorGenerator() {
 
   return (
     <div className="page-position">
-      <h2>Color Generator Page</h2>
+      <PageWelcoming {...clientData} />
       <button className="button" onClick={generateNewColors}>
         Generate New Colors
       </button>

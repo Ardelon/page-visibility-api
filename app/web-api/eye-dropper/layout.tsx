@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { clientData } from "./data";
 
 interface LayoutProps {
   children: ReactNode;
@@ -9,8 +10,8 @@ export default function Layout(props: LayoutProps) {
   return <>{children} </>;
 }
 
-const title = "Ardelon - Eye Dropper API";
-const description = `Eye Dropper API is a Web API that helps to select colors from anywhere on the screen, not limited to the browser. With that, Eye Dropper API is starting point to building such applications such as Chrome Extensions. It is easy to use and control the outcome with the right UI calibration into clients needs.`;
+const { title, description } = clientData;
+
 const imageUrl = `/eye-dropper.webp`;
 export const metadata = {
   title,

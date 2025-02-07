@@ -1,5 +1,4 @@
-import { IEvolutionChain } from "@/interface/evolutionChainInterface";
-import { IErrorResponse } from "@/interface/serviceInterface";
+import { IErrorResponse, IEvolutionChain } from "@/interface";
 import { mapEvolutionChain } from "@/mapper";
 import { validateEvolutionChain } from "@/validator";
 import axios from "axios";

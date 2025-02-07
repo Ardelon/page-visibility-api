@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { clientData } from "./data";
 
 interface LayoutProps {
   children: ReactNode;
@@ -9,8 +10,7 @@ export default function Layout(props: LayoutProps) {
   return <>{children} </>;
 }
 
-const title = "Ardelon - Battery Status API";
-const description = `Battery Status API is helps to reach battery status information of clients device. It is a very straightforward API but also a useful one. Potential use cases could be saving necessary data in local storages or in servers depend on application architecture. For example, if Netflix did not save the proggress on what I have been watching for the last hour and my battery died, I would be very upset to find out that Netflix did not take the necessary actions to save my data.`;
+const { title, description } = clientData;
 export const metadata = {
   title,
   description,

@@ -1,4 +1,4 @@
-import { IPokemonList } from "@/interface/pokemonInterface";
+import { IPokemonList } from "@/interface";
 import GalleryCard from "./GalleryCard";
 
 interface propsInterface {

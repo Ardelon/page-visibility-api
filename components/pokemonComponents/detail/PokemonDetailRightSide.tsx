@@ -1,9 +1,7 @@
-import { IEvolutionChain } from "@/interface/evolutionChainInterface";
-import { IPokemon } from "@/interface/pokemonInterface";
 import { capitalizeFirstLetter, preparePokemonIdForDisplay } from "@/utility";
 import React, { ReactNode } from "react";
 import PokemonCard from "./PokemonCard";
-import { IErrorResponse } from "@/interface";
+import { IErrorResponse, IEvolutionChain, IPokemon } from "@/interface";
 
 interface PokemonDetailRightSideInterface {
   evolutionChain: IEvolutionChain | IErrorResponse;

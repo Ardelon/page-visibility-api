@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { clientData } from "./data";
 
 interface LayoutProps {
   children: ReactNode;
@@ -9,8 +10,7 @@ export default function Layout(props: LayoutProps) {
   return <>{children} </>;
 }
 
-const title = "Ardelon - Color Catalog";
-const description = `Color Catalog from different sources.`;
+const { title, description } = clientData;
 const imageUrl = `/color_catalog.webp`;
 export const metadata = {
   title,

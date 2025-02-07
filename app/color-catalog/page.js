@@ -1,5 +1,6 @@
 "use client";
 
+import PageWelcoming from "@/components/units/PageWelcoming";
 import {
   htmlColorCatalog,
   htmlColorCatalogSource,
@@ -11,6 +12,7 @@ import {
 import { copyToClipboard, generateRandomKey } from "@/utility/rendering";
 import Link from "next/link";
 import { useState } from "react";
+import { clientData } from "./data";
 
 function ColorCatalog() {
   const [catalogType, setCatalogType] = useState("html");
@@ -48,7 +50,7 @@ function ColorCatalog() {
 
   return (
     <div className="page-position color-palette-container">
-      <h2>Color Catalog</h2>
+      <PageWelcoming {...clientData} />
       <div
         style={{
           display: "flex",

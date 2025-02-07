@@ -1,8 +1,10 @@
 "use client";
 
+import PageWelcoming from "@/components/units/PageWelcoming";
 import ColorPickerWidget from "@/components/widgets/ColorPickerWidget";
 import { hslToRgb, isClient, RGBToHex, rgbToHsl } from "@/utility/rendering";
 import { useEffect, useState } from "react";
+import { clientData } from "./data";
 function ColorPicker() {
   const mounted = isClient();
   const [rgbColor, setRgbColor] = useState({ r: 219, g: 7, b: 61 });
@@ -30,7 +32,7 @@ function ColorPicker() {
   if (!mounted) return null;
   return (
     <div className="page-position">
-      <h2>Color Picker</h2>
+      <PageWelcoming {...clientData} />
       <div className="color-picker-container">
         <ColorPickerWidget
           hue={Number(hslColor.h)}

@@ -1,10 +1,12 @@
 "use client";
+import PageWelcoming from "@/components/units/PageWelcoming";
 import {
   copyToClipboard,
   generateRandomKey,
   isClient,
 } from "@/utility/rendering";
 import { useState } from "react";
+import { clientData } from "./data";
 
 function EyeDropperPage() {
   const isBrowser = isClient();
@@ -37,7 +39,7 @@ function EyeDropperPage() {
 
   return (
     <div className="page-position">
-      <h2>Eye Dropper API Page</h2>
+      <PageWelcoming {...clientData} />
       <div className="color-container"></div>
       <button className="button" onClick={openEyeDropper}>
         Open Eye Dropper

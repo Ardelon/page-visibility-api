@@ -1,4 +1,5 @@
-import { IPokemon } from "@/interface/pokemonInterface";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { IPokemon } from "@/interface";
 
 const mapPokemonList = (response: any) => {
   const data = response.data;

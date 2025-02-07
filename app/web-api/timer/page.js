@@ -1,8 +1,10 @@
 "use client";
 
+import PageWelcoming from "@/components/units/PageWelcoming";
 import usePageVisibility from "@/hooks/pageVisibilityHook";
 import { useMounted } from "@/hooks/useMounted";
 import { useEffect, useRef, useState } from "react";
+import { clientData } from "./data";
 
 function Timer() {
   const mounted = useMounted();
@@ -30,7 +32,7 @@ function Timer() {
 
   return (
     <div className="page-position">
-      <h2>Timer Page</h2>
+      <PageWelcoming {...clientData} />
       <div className="music-div">
         <label>Second Counter</label>
         <div>{counter}</div>

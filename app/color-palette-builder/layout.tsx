@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { clientData } from "./data";
 
 interface LayoutProps {
   children: ReactNode;
@@ -9,8 +10,7 @@ export default function Layout(props: LayoutProps) {
   return <>{children} </>;
 }
 
-const title = "Ardelon - Color Palette Builder";
-const description = `Color Palette Builder that helps to fint tint, shadow and tone values of given color.`;
+const { title, description } = clientData;
 const imageUrl = `/color_wheel.webp`;
 export const metadata = {
   title,
