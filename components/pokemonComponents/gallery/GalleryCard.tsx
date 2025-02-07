@@ -21,7 +21,7 @@ export const GalleryCard = async (props: propsInterface) => {
 
   return (
     <div className="  md:w-64 w-full  p-2 border-2 border-[#3865d2]   rounded-lg ">
-      <Link href={`/pokemon-app/pokemon/${identifier}`}>
+      <Link href={`/pokemon-app/${identifier}`}>
         <Image
           alt={`${pokemon.name} default front image`}
           className=" md:w-60 md:h-60 w-full "

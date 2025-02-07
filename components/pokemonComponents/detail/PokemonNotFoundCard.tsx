@@ -22,7 +22,7 @@ const PokemonNotFound: React.FC<PokemonNotFoundProps> = async ({
   return (
     // <div className="w-64 p-2 border-2 border-[#3865d2]   rounded-lg ">
     <div className="  md:w-64 w-full  p-2 border-2 border-[#3865d2]   rounded-lg ">
-      <Link href={`/pokemon-app/pokemon/${identifier}`}>
+      <Link href={`/pokemon-app/${identifier}`}>
         <Image
           alt={`${pokemon.name} default front image`}
           className=" md:w-60 md:h-60 w-full "

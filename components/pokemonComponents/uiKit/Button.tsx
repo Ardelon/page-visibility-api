@@ -16,7 +16,7 @@ const Button: React.FC = () => {
 
     const inputValue = inputElement.value.trim();
     if (inputValue) {
-      router.push(`/pokemon-app/pokemon/${inputValue}`);
+      router.push(`/pokemon-app/${inputValue}`);
     } else {
       console.warn("No value entered in the input.");
     }

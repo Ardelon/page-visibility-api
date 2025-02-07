@@ -5,7 +5,7 @@ import Image from "next/image";
 const Header = () => {
   return (
     <header className="flex w-4/5 m-auto justify-around items-center md:flex-row flex-col pb-4 ">
-      <Link href="/pokemon-app/pokemon?page=1">
+      <Link href="/pokemon-app?page=1">
         <Image
           alt={"Pokemon Logo"}
           className="w-64"

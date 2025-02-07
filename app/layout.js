@@ -76,7 +76,7 @@ export default function RootLayout({ children }) {
               Home Page
             </Link>
             <Link
-              href="/pokemon-app/pokemon?page=1"
+              href="/pokemon-app?page=1"
               rel="noopener noreferrer"
               className="link"
             >

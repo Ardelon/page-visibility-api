@@ -11,7 +11,7 @@ const Input: React.FC = () => {
     const value = target.value;
 
     if (e.code === "Enter" || e.code === "NumpadEnter") {
-      router.push(`/pokemon/${value}`);
+      router.push(`/${value}`);
     }
   };
   return (

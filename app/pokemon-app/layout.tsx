@@ -8,7 +8,9 @@ export default function RootLayout({
   return (
     <>
       <Header />
-      <div className="">{children}</div>
+      <div className="flex min-h-screen flex-col items-center justify-between p-24">
+        {children}
+      </div>
     </>
   );
 }
