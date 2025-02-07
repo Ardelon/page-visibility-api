@@ -29,8 +29,11 @@ export default function Home() {
         </p>
         <div style={{ marginTop: "60px" }}>
           <h3 style={{ textAlign: "center" }}>
-            <Link href="/color-picker" style={{ textDecoration: "underline" }}>
-              Latest App - Color Picker
+            <Link
+              href="/pokemon-app?page=1"
+              style={{ textDecoration: "underline" }}
+            >
+              Latest App - Pokedex
             </Link>
           </h3>
         </div>

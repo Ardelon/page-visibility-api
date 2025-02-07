@@ -27,11 +27,6 @@ const Header = () => {
         <Input />
         <Button />
       </div>
-      {/* <h1></h1> */}
-      <nav>
-        {/* <Link href="/pokemon">Pokedex</Link> */}
-        {/* <Link href="/pokemon">Pokemon</Link> */}
-      </nav>
     </header>
   );
 };
