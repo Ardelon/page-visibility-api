@@ -27,7 +27,7 @@ export const useWeather = () => {
     setError(null);
     try {
       const response = await fetch(
-        `https://api.weatherapi.com/v1/current.json?key=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&q=${lat},${lng}&aqi=no`
+        `https://api.weatherapi.com/v1/current.json?key=${process.env.WEATHER_API_KEY}&q=${lat},${lng}&aqi=no`
       );
 
       if (!response.ok) {
