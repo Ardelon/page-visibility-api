@@ -79,10 +79,16 @@ export default async function sitemap() {
       priority: 0.1,
     },
     {
+      url: `${baseUrl}map-app`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 1,
+    },
+    {
       url: `${baseUrl}pokemon-app`,
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 0.1,
+      priority: 1,
     },
     ...pokemonList.results.map((pokemon) => ({
       url: `${baseUrl}pokemon-app/${pokemon.name}`,

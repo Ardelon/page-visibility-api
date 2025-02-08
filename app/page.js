@@ -28,9 +28,14 @@ export default function Home() {
           posts.
         </p>
         <div className="mt-16">
+          <h3 className="text-center text-xl xl:text-2xl mb-10">
+            <Link href="/map-app" className="underline">
+              1 - Map App
+            </Link>
+          </h3>
           <h3 className="text-center text-xl xl:text-2xl">
             <Link href="/pokemon-app?page=1" className="underline">
-              Latest App - Pokedex
+              2 - Pokedex
             </Link>
           </h3>
         </div>

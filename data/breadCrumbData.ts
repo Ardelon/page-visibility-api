@@ -12,6 +12,12 @@ export const breadCrumbData: IBreadCrumbItem[] = [
         isBlank: false,
         children: [],
       },
+      {
+        displayText: "Map",
+        url: "/map-app",
+        isBlank: false,
+        children: [],
+      },
     ],
   },
   {
