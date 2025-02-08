@@ -38,7 +38,6 @@ function MapApp() {
       });
 
       map.on("click", (event) => {
-        console.log(event.lngLat);
         setSelectedLocation(event.lngLat);
       });
       map.on("moveend", () => {

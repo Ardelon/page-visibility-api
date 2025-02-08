@@ -10,7 +10,6 @@ interface WeatherProps {
 function Weather(props: WeatherProps) {
   const { lat, lng } = props;
   const { weather, loading, error, fetchWeather } = useWeather();
-  console.log(lat, lng);
   useEffect(() => {
     if (typeof lat === "number" && typeof lng === "number") {
       fetchWeather(lat, lng);
