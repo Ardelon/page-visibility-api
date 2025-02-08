@@ -5,12 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import BreadCrumbItem from "./BreadCrumbItem";
 import { breadCrumbData } from "@/data/breadCrumbData";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import HeaderDialog from "./HeaderDialog";
+import { usePathname } from "next/navigation";
 
 function Header() {
-  const dialogRef = useRef(null);
-  const [openDialog, setOpenDialog] = useState<boolean>(false);
-
+  const [openDialog, setOpenDialog] = useState<boolean>(true);
+  const pathname = usePathname();
   const handleToggleDialog = () => {
     setOpenDialog((s) => !s);
   };
@@ -19,6 +20,9 @@ function Header() {
     if (openDialog) document.body.style.position = "fixed";
     else document.body.style.position = "";
   }, [openDialog]);
+  useEffect(() => {
+    setOpenDialog(false);
+  }, [pathname]);
 
   return (
     <header className="h-14 xl:h-24 flex py-2 px-2 xl:px-10 items-center justify-between shadow  bg-yellow-400">
@@ -48,13 +52,7 @@ function Header() {
         <div className="w-6 h-1 bg-black my-1 rounded-xl"></div>
         <div className="w-6 h-1 bg-black my-1 rounded-xl"></div>
       </div>
-      <dialog
-        ref={dialogRef}
-        open={openDialog}
-        className="h-[calc(100dvh-56px)] w-full bg-black top-14 absolute z-50 overflow-y-hidden"
-      >
-        Selam
-      </dialog>
+      <HeaderDialog openDialog={openDialog} breadCrumbData={breadCrumbData} />
     </header>
   );
 }

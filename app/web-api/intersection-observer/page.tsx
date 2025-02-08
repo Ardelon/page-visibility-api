@@ -14,7 +14,7 @@ function IntersectionObserver() {
   };
 
   return (
-    <div style={{ padding: "40px" }} className="page-position">
+    <div className="page-position">
       <PageWelcoming {...clientData} />
       {renderRandomBlocks()}
     </div>
