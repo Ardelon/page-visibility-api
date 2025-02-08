@@ -29,6 +29,7 @@ function Header() {
       <Link href="/">
         <div className="flex row magnify-a-bit">
           <Image
+            unoptimized
             src={Logo.default}
             width={0}
             height={0}

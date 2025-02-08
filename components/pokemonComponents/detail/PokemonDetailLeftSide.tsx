@@ -18,6 +18,7 @@ const PokemonDetailLeftSide: React.FC<PokemonDetailLeftSideInterface> = ({
           {capitalizeFirstLetter(pokemon.name)}
         </h1>
         <Image
+          unoptimized
           alt={`${pokemon.name} default front image`}
           className="w-96 m-auto"
           src={pokemon.sprites.front_default}

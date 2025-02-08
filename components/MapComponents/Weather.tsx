@@ -34,6 +34,7 @@ function Weather(props: WeatherProps) {
           <p className="text-sm text-gray-600">{weather.location.country}</p>
           <div className="flex items-center mt-2">
             <Image
+              unoptimized
               src={`https:${weather.current.condition.icon}`}
               alt="Weather icon"
               width={48}

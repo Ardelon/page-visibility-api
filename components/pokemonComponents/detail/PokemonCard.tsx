@@ -34,6 +34,7 @@ const PokemonCard: React.FC<PokemonCardProps> = async (chain) => {
       <Link href={`/pokemon-app/${pokemon?.name}`}>
         <div className="flex flex-row magnify-a-bit">
           <Image
+            unoptimized
             alt={`${pokemon.name} default front image`}
             src={pokemon?.sprites.front_default}
             width={0}
