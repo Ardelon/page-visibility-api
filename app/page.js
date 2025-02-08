@@ -3,9 +3,9 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="page-position">
-      <h2>Home Page</h2>
-      <div style={{ width: "50%", marginTop: "20px", lineHeight: "1.5" }}>
-        <p>
+      <h2 className="mt-5 text-3xl xl:text-4xl">Home Page</h2>
+      <div className="mt-5 max-w-[80%] xl:max-w-[50%] leading-normal">
+        <p className=" mb-10 text-lg leading-relaxed">
           This website is serving to be as a portfolio / demo application for{" "}
           <a
             href="https://www.linkedin.com/in/alihankeskin/"
@@ -27,12 +27,9 @@ export default function Home() {
           </a>{" "}
           posts.
         </p>
-        <div style={{ marginTop: "60px" }}>
-          <h3 style={{ textAlign: "center" }}>
-            <Link
-              href="/pokemon-app?page=1"
-              style={{ textDecoration: "underline" }}
-            >
+        <div className="mt-16">
+          <h3 className="text-center text-xl xl:text-2xl">
+            <Link href="/pokemon-app?page=1" className="underline">
               Latest App - Pokedex
             </Link>
           </h3>

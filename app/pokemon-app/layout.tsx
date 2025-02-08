@@ -6,7 +6,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="w-4/5 my-20 m-auto border-2 border-gray-600 rounded-xl">
+    <div className="w-full xl:w-4/5 xl:my-20 m-auto xl:border-2 xl:border-gray-600 rounded-xl">
       <Header />
       <div className="flex min-h-screen flex-col items-center justify-between p-24">
         {children}

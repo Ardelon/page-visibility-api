@@ -182,7 +182,6 @@ a {
 .footer {
   grid-row-start: 3;
   display: flex;
-  gap: 24px;
   min-height: 100px;
   justify-content: space-around;
   align-items: center;
@@ -200,11 +199,14 @@ a {
   flex-direction: column;
   justify-content: center;
   margin: 0px auto;
-  max-width: 80%;
   align-items: center;
   flex-grow: 1;
-  min-height: calc(100vh - 236px);
   box-sizing: border-box;
+  min-height: calc(100vh - 196px);
+  @media (width >= 40rem) {
+    min-height: calc(100vh - 236px);
+    max-width: 80%;
+  }
 }
 
 .color-palette-container {

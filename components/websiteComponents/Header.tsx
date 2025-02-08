@@ -1,34 +1,60 @@
+"use client";
 import * as Logo from "@/data/icons/icon-source/icon-black-no-text-no-bg.png";
 import { generateRandomKey } from "@/utility/rendering";
 import Image from "next/image";
 import Link from "next/link";
 import BreadCrumbItem from "./BreadCrumbItem";
 import { breadCrumbData } from "@/data/breadCrumbData";
+import { useEffect, useRef, useState } from "react";
 
 function Header() {
+  const dialogRef = useRef(null);
+  const [openDialog, setOpenDialog] = useState<boolean>(false);
+
+  const handleToggleDialog = () => {
+    setOpenDialog((s) => !s);
+  };
+
+  useEffect(() => {
+    if (openDialog) document.body.style.position = "fixed";
+    else document.body.style.position = "";
+  }, [openDialog]);
+
   return (
-    <header className="h-24 flex py-2 px-10 justify-between shadow z-50 bg-yellow-400">
+    <header className="h-14 xl:h-24 flex py-2 px-2 xl:px-10 items-center justify-between shadow  bg-yellow-400">
       <Link href="/">
         <div className="flex row magnify-a-bit">
           <Image
             src={Logo.default}
             width={0}
             height={0}
-            className="w-auto h-16 m-2"
+            className="w-auto h-6 xl:h-16 m-2"
             alt="Website Logo"
           />
-          <span className="text-3xl leading-[5rem] font-semibold">
+          <span className="text-md xl:text-3xl leading-10 xl:leading-[5rem] font-semibold">
             Ardelon Coding
           </span>
         </div>
       </Link>
-      <div className="h-20">
+      <div className="hidden xl:block h-20">
         <ul className="flex row ">
           {breadCrumbData.map((data) => {
             return <BreadCrumbItem key={generateRandomKey()} {...data} />;
           })}
         </ul>
       </div>
+      <div onClick={handleToggleDialog}>
+        <div className="w-6 h-1 bg-black my-1 rounded-xl"></div>
+        <div className="w-6 h-1 bg-black my-1 rounded-xl"></div>
+        <div className="w-6 h-1 bg-black my-1 rounded-xl"></div>
+      </div>
+      <dialog
+        ref={dialogRef}
+        open={openDialog}
+        className="h-[calc(100dvh-56px)] w-full bg-black top-14 absolute z-50 overflow-y-hidden"
+      >
+        Selam
+      </dialog>
     </header>
   );
 }

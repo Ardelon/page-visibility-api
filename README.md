@@ -2,3 +2,7 @@
 - [How to Use the Page Visibility API and Custom React Hooks to Improve User Experience](https://blog.bitsrc.io/how-to-use-the-page-visibility-api-and-custom-react-hooks-to-improve-user-experience-adb08b126c5a)
 - [Device Memory API - Developer Chrome](https://developer.chrome.com/blog/device-memory?hl=tr)
 - [Color Transformation Gist](https://gist.github.com/mjackson/5311256)
+
+Ideas
+
+- [Salary Heatmap](https://www.levels.fyi/heatmap/europe/)

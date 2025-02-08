@@ -19,6 +19,7 @@ function RandomBlock() {
         textAlign: "center",
         lineHeight: "200px",
         fontSize: "24px",
+        position: "relative",
         background: `rgb(${Math.max(240 - counter * 5)}, ${Math.max(
           248 - counter * 5
         )},${Math.max(255 - counter * 5)} )`,
