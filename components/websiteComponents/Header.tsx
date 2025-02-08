@@ -10,7 +10,7 @@ import HeaderDialog from "./HeaderDialog";
 import { usePathname } from "next/navigation";
 
 function Header() {
-  const [openDialog, setOpenDialog] = useState<boolean>(true);
+  const [openDialog, setOpenDialog] = useState<boolean>(false);
   const pathname = usePathname();
   const handleToggleDialog = () => {
     setOpenDialog((s) => !s);
@@ -47,7 +47,7 @@ function Header() {
           })}
         </ul>
       </div>
-      <div onClick={handleToggleDialog}>
+      <div className="xl:hidden" onClick={handleToggleDialog}>
         <div className="w-6 h-1 bg-black my-1 rounded-xl"></div>
         <div className="w-6 h-1 bg-black my-1 rounded-xl"></div>
         <div className="w-6 h-1 bg-black my-1 rounded-xl"></div>
