@@ -22,15 +22,15 @@ function BreadCrumbItem(props: IBreadCrumbItem) {
     return (
       <>
         <Link href={url} target={isBlank ? "_blank" : ""}>
-          <li className="text-xl leading-[5rem] pointer magnify-a-bit ml-5">
+          <div className="text-xl leading-[5rem] pointer magnify-a-bit ml-5">
             {displayText}
-          </li>
+          </div>
         </Link>
       </>
     );
   } else if (children.length > 0) {
     return (
-      <li
+      <div
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         className="relative text-xl leading-[5rem] pointer magnify-a-bit ml-5"
@@ -45,7 +45,7 @@ function BreadCrumbItem(props: IBreadCrumbItem) {
             return <BreadCrumbItem key={generateRandomKey()} {...element} />;
           })}
         </div>
-      </li>
+      </div>
     );
   }
 }

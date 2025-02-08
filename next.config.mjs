@@ -9,6 +9,13 @@ const nextConfig = {
         pathname: "/**",
         search: "",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.weatherapi.com",
+        port: "",
+        pathname: "/**",
+        search: "",
+      },
     ],
   },
 };

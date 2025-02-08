@@ -4,9 +4,7 @@ function Footer() {
   return (
     <>
       <footer
-        className={
-          "footer bg-yellow-400  mt-10 xl:gap-6 flex-col xl:flex-row pb-5"
-        }
+        className={"footer bg-yellow-400   xl:gap-6 flex-col xl:flex-row pb-5"}
       >
         <div className="flex gap-8  ">
           <Link

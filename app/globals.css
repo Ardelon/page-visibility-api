@@ -202,10 +202,16 @@ a {
   align-items: center;
   flex-grow: 1;
   box-sizing: border-box;
-  min-height: calc(100vh - 196px);
+  min-height: calc(100vh - 156px);
   @media (width >= 40rem) {
-    min-height: calc(100vh - 236px);
+    min-height: calc(100vh - 196px);
     max-width: 80%;
+  }
+}
+
+.height-full {
+  @media (width >= 40rem) {
+    min-height: calc(100vh - 196px);
   }
 }
 
