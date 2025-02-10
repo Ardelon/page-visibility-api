@@ -9,6 +9,27 @@ import { getValidCoordinate } from "@/utility/mapUtilities";
 import GeolocationButton from "@/components/MapComponents/GeolocationButton";
 import CopyMapUrl from "@/components/MapComponents/CopyMapUrl";
 
+import {
+  isMapboxURL,
+  transformMapboxUrl,
+} from "maplibregl-mapbox-request-transformer";
+
+const transformRequest = (
+  url: string,
+  resourceType: maplibregl.ResourceType | undefined
+) => {
+  if (isMapboxURL(url)) {
+    return transformMapboxUrl(
+      url,
+      resourceType as string,
+      process.env.MAPBOX_KEY ?? ""
+    );
+  }
+
+  // Do any other transforms you want
+  return { url };
+};
+
 function MapApp() {
   const isMounted = isClient();
   const searchParams = useSearchParams();
@@ -21,9 +42,11 @@ function MapApp() {
       const initialZoom = getValidCoordinate(searchParams.get("zoom"), 1);
       const map = new maplibregl.Map({
         container: "map",
-        style: "https://demotiles.maplibre.org/style.json",
+        style: "mapbox://styles/mapbox/streets-v12",
+        validateStyle: false,
         center: [initialLng, initialLat],
         zoom: initialZoom,
+        transformRequest,
       });
 
       setMapInstance(map);
