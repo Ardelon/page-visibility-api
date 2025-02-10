@@ -2,6 +2,7 @@
 const nextConfig = {
   env: {
     WEATHER_API_KEY: process.env.WEATHER_API_KEY,
+    MAPBOX_KEY: process.env.MAPBOX_KEY,
   },
   images: {
     remotePatterns: [

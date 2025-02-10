@@ -1,20 +1,33 @@
 import { useWeather } from "@/hooks/useWeather";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 interface WeatherProps {
-  lat: number | undefined;
-  lng: number | undefined;
+  mapInstance: maplibregl.Map;
 }
 
 function Weather(props: WeatherProps) {
-  const { lat, lng } = props;
+  const { mapInstance } = props;
+
+  const [selectedLocation, setSelectedLocation] = useState<{
+    lat: number;
+    lng: number;
+  } | null>(null);
   const { weather, loading, error, fetchWeather } = useWeather();
   useEffect(() => {
-    if (typeof lat === "number" && typeof lng === "number") {
-      fetchWeather(lat, lng);
+    if (
+      typeof selectedLocation?.lat === "number" &&
+      typeof selectedLocation?.lng === "number"
+    ) {
+      fetchWeather(selectedLocation.lat, selectedLocation.lng);
     }
-  }, [lat, lng]);
+  }, [selectedLocation]);
+
+  useEffect(() => {
+    mapInstance.on("click", (event) => {
+      setSelectedLocation(event.lngLat);
+    });
+  }, [mapInstance]);
 
   return (
     <>

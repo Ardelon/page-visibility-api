@@ -33,9 +33,15 @@ export const metadata = {
     siteName: "Ardelon",
     images: [
       {
-        url: "https://example.com/og.png",
+        url: "/og_logo.jpg",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ardelon - Home Page",
+    description: "Ardelon portfolio and demo website",
+    images: "/og_logo.jpg",
   },
 };
 
