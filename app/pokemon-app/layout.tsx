@@ -16,7 +16,7 @@ export default function RootLayout({
 }
 
 const title = "Ardelon - Pokedex App";
-const description = `Battery Status API is helps to reach battery status information of clients device. It is a very straightforward API but also a useful one. Potential use cases could be saving necessary data in local storages or in servers depend on application architecture. For example, if Netflix did not save the proggress on what I have been watching for the last hour and my battery died, I would be very upset to find out that Netflix did not take the necessary actions to save my data.`;
+const description = `Pokedex App is a simple app that allows you to view a list of Pokémon and their details.`;
 const imageUrl = `/pokedex.webp`;
 export const metadata = {
   title,

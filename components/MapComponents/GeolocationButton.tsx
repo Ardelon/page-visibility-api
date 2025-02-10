@@ -27,7 +27,7 @@ function GeolocationButton(props: GeolocationButtonProps) {
     <>
       <button
         onClick={getCurrentLocation}
-        className="absolute top-4 left-32 bg-white p-2 rounded-lg shadow-lg z-50"
+        className="absolute top-16 left-4 bg-white p-2 rounded-lg shadow-lg z-50"
         disabled={isTriggered && loading}
       >
         {!isTriggered

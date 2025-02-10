@@ -17,7 +17,7 @@ function PageWelcoming(props: IPageWelcoming) {
         </h3>
       )}
       {description && (
-        <p className=" xl:w-3/5 xl:mx-auto mb-10 text-lg leading-relaxed">
+        <p className=" xl:w-3/5 xl:mx-auto mb-4 text-lg leading-relaxed">
           {description}
         </p>
       )}

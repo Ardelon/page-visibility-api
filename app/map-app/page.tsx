@@ -13,6 +13,7 @@ import {
   isMapboxURL,
   transformMapboxUrl,
 } from "maplibregl-mapbox-request-transformer";
+import LayerToggle from "@/components/MapComponents/LayerToggle";
 
 const transformRequest = (
   url: string,
@@ -59,10 +60,11 @@ function MapApp() {
 
   return (
     <div className="relative w-full h-full">
-      <div className="absolute w-full h-full rounded-xl" id="map">
+      <div className="absolute w-full h-full xl:rounded-xl" id="map">
         {mapInstance && <Weather mapInstance={mapInstance} />}
         {mapInstance && <CopyMapUrl mapInstance={mapInstance} />}
         {mapInstance && <GeolocationButton mapInstance={mapInstance} />}
+        {mapInstance && <LayerToggle mapInstance={mapInstance} />}
       </div>
     </div>
   );

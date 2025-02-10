@@ -18,6 +18,12 @@ export const breadCrumbData: IBreadCrumbItem[] = [
         isBlank: false,
         children: [],
       },
+      {
+        displayText: "QR",
+        url: "/qr-app",
+        isBlank: false,
+        children: [],
+      },
     ],
   },
   {

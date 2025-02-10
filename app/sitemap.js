@@ -79,6 +79,12 @@ export default async function sitemap() {
       priority: 0.1,
     },
     {
+      url: `${baseUrl}qr-app`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 1,
+    },
+    {
       url: `${baseUrl}map-app`,
       lastModified: new Date(),
       changeFrequency: "monthly",

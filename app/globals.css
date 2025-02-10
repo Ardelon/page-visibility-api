@@ -214,6 +214,12 @@ a {
     min-height: calc(100vh - 196px);
   }
 }
+.height-full-app {
+  min-height: calc(100vh - 156px);
+  @media (width >= 40rem) {
+    min-height: calc(100vh - 356px);
+  }
+}
 
 .color-palette-container {
   padding-top: 64px;
