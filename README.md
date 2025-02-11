@@ -47,3 +47,5 @@ Ideas
 # LLM Model eğitme
 
 # Özlü Sözler - Küfür Sözlüğü API Servisi Olabilir
+
+# Proje fikrin mi var bana yaz

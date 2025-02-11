@@ -15,9 +15,8 @@ export default function Home() {
             Alihan Keskin
           </a>
           . There are various applications within, you can check them out
-          through footer links. There is no responsive design for mobile phones
-          yet, but it will be eventually. Other than that, you can enjoy
-          applications or{" "}
+          through header links. There is responsive (enough) design for mobile
+          phones. Other than that, you can enjoy applications or{" "}
           <a
             href="https://medium.com/@akeskinw"
             target="_blank"
